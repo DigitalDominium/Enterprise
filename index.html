@@ -3,107 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Dominion Enterprise - Innovative Software Solutions</title>
-    <meta name="description" content="Empowering businesses with cutting-edge software development, cloud services, and digital transformation strategies.">
+    <title>Digital Dominion Enterprise - Precision Software Engineering</title>
+    <meta name="description" content="Digital Dominion Enterprise delivers precision-built software, automation, and cloud-first solutions for businesses that demand reliability and performance.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
         /* Reset and Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
+        html, body { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            color: #E0E0E0; 
+            background: #050508; 
+            overflow-x: hidden; 
+            letter-spacing: 0.2px;
+        }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         a { text-decoration: none; }
-        button, .btn { cursor: pointer; border: none; border-radius: 5px; padding: 12px 24px; font-weight: 600; transition: all 0.3s ease; }
+        button, .btn { 
+            cursor: pointer; 
+            border: none; 
+            border-radius: 999px; 
+            padding: 12px 28px; 
+            font-weight: 600; 
+            transition: all 0.3s ease; 
+            font-size: 0.95rem;
+            letter-spacing: 0.6px;
+        }
+
+        /* Color Tokens */
+        :root {
+            --dd-gold: #C9A86A;
+            --dd-gold-soft: rgba(201,168,106,0.3);
+            --dd-bg-deep: #050508;
+            --dd-bg-panel: #101015;
+            --dd-bg-soft: #14141C;
+            --dd-text-soft: #B0B0C0;
+            --dd-border-soft: rgba(255,255,255,0.07);
+        }
+
+        /* Typography */
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.6px;
+        }
+
+        .section-title {
+            text-align: center; 
+            font-size: 2.4rem; 
+            margin-bottom: 3rem; 
+            color: #F5F5F5; 
+            position: relative;
+        }
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -14px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 70px; 
+            height: 2px; 
+            background: var(--dd-gold); 
+            opacity: 0.9;
+        }
+        .section-kicker {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--dd-gold);
+            text-align: center;
+            margin-bottom: 0.6rem;
+        }
 
         /* Header & Navigation */
-        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        .logo { font-size: 1.8rem; font-weight: bold; color: #1a1a1a; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: #333; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #007bff; }
+        header { 
+            background: rgba(5,5,8,0.96); 
+            backdrop-filter: blur(16px); 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 25px rgba(0,0,0,0.6);
+            border-bottom: 1px solid rgba(201,168,106,0.25);
+        }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0.9rem 0; 
+        }
+        .logo { 
+            font-size: 1.7rem; 
+            font-weight: 700; 
+            color: var(--dd-gold); 
+            letter-spacing: 1px;
+        }
+        .logo span {
+            font-weight: 600;
+            color: #F5F5F5;
+        }
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+            align-items: center;
+        }
+        .nav-links a { 
+            color: #F5F5F5; 
+            font-weight: 400; 
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 1px;
+            background: var(--dd-gold);
+            transition: width 0.25s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            border-radius: 999px;
+            border: 1px solid var(--dd-gold-soft);
+            padding: 7px 18px;
+            font-size: 0.8rem;
+            color: var(--dd-gold);
+            text-transform: uppercase;
+        }
+        .nav-cta:hover {
+            background: var(--dd-gold);
+            color: #050508;
+            box-shadow: 0 0 16px rgba(201,168,106,0.6);
+        }
+
         .mobile-menu { display: none; flex-direction: column; cursor: pointer; }
-        .mobile-menu span { width: 25px; height: 3px; background: #333; margin: 3px 0; transition: 0.3s; }
+        .mobile-menu span { width: 22px; height: 2px; background: #F5F5F5; margin: 3px 0; transition: 0.3s; }
+        
         @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background: #050508; 
+                flex-direction: column; 
+                padding: 1rem 1.5rem; 
+                box-shadow: 0 12px 30px rgba(0,0,0,0.6); 
+                border-bottom: 1px solid rgba(201,168,106,0.25);
+            }
             .nav-links.active { display: flex; }
             .mobile-menu { display: flex; }
+            .nav-cta { align-self: flex-start; margin-top: 0.5rem; }
         }
 
         /* Hero Section */
-        .hero { background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); opacity: 0.3; }
-        .hero-content { max-width: 800px; z-index: 1; animation: fadeInUp 1s ease; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
-        .btn-primary { background: #fff; color: #007bff; }
-        .btn-primary:hover { background: #f8f9fa; transform: translateY(-2px); }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .hero p { font-size: 1.1rem; } }
+        .hero { 
+            background: radial-gradient(circle at top left, rgba(201,168,106,0.16), transparent 55%), 
+                        radial-gradient(circle at bottom right, rgba(201,168,106,0.12), transparent 55%), 
+                        linear-gradient(135deg, #050508 0%, #101015 70%, #050508 100%);
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: left; 
+            color: white; 
+            position: relative; 
+            overflow: hidden; 
+            padding-top: 80px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            top: -40px; 
+            right: -80px; 
+            width: 320px; 
+            height: 320px; 
+            background: radial-gradient(circle, rgba(201,168,106,0.25), transparent 60%);
+            opacity: 0.7; 
+            filter: blur(2px);
+        }
+        .hero-content { 
+            max-width: 640px; 
+            z-index: 1; 
+            animation: fadeInUp 1s ease; 
+        }
+
+        .hero-kicker {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--dd-gold);
+            margin-bottom: 0.9rem;
+        }
+        .hero h1 { 
+            font-size: 2.9rem; 
+            margin-bottom: 1rem; 
+            color: #F5F5F5;
+        }
+        .hero h1 span {
+            color: var(--dd-gold);
+        }
+        .hero p { 
+            font-size: 1.05rem; 
+            margin-bottom: 1.8rem; 
+            opacity: 0.92; 
+            color: var(--dd-text-soft);
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: #8F8FA0;
+            margin-bottom: 2rem;
+        }
+        .hero-meta span {
+            position: relative;
+            padding-left: 16px;
+        }
+        .hero-meta span::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid var(--dd-gold);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            align-items: center;
+        }
+        .btn-primary { 
+            background: var(--dd-gold); 
+            color: #050508; 
+            box-shadow: 0 0 0 rgba(201,168,106,0.5);
+        }
+        .btn-primary:hover { 
+            background: #E0C585; 
+            transform: translateY(-2px); 
+            box-shadow: 0 0 18px rgba(201,168,106,0.7); 
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--dd-gold-soft);
+            color: var(--dd-text-soft);
+        }
+        .btn-outline i {
+            margin-right: 8px;
+        }
+        .btn-outline:hover {
+            border-color: var(--dd-gold); 
+            color: var(--dd-gold);
+            box-shadow: 0 0 12px rgba(201,168,106,0.5);
+        }
+
+        .hero-precision-card {
+            z-index: 1;
+            background: rgba(16,16,26,0.95);
+            border-radius: 18px;
+            padding: 1.6rem 1.5rem;
+            border: 1px solid var(--dd-border-soft);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.65);
+            max-width: 360px;
+            margin-left: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (max-width: 900px) {
+            .hero-precision-card { 
+                margin: 2rem auto 0 auto; 
+            }
+        }
+        .hero-precision-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201,168,106,0.08), transparent 70%);
+            pointer-events: none;
+        }
+        .hero-precision-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .hero-precision-title {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #BEBECC;
+        }
+        .hero-precision-chip {
+            width: 32px;
+            height: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--dd-gold-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            color: var(--dd-gold);
+        }
+        .hero-precision-metric {
+            font-size: 1.8rem;
+            color: #F5F5F5;
+            margin-bottom: 0.25rem;
+        }
+        .hero-precision-sub {
+            font-size: 0.8rem;
+            color: var(--dd-text-soft);
+            margin-bottom: 1.2rem;
+        }
+        .hero-precision-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            font-size: 0.72rem;
+        }
+        .hero-precision-tags span {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--dd-border-soft);
+            background: rgba(5,5,8,0.85);
+            color: #CBCBDB;
+        }
+
+        @keyframes fadeInUp { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
         /* Sections */
         section { padding: 5rem 0; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #1a1a1a; position: relative; }
-        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: #007bff; }
 
         /* About Section */
-        .about { background: #f8f9fa; }
-        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-        .about-text h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .about-text p { font-size: 1.1rem; margin-bottom: 1.5rem; }
-        .about-image { text-align: center; }
-        .about-image img { max-width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; } }
+        .about {
+            background: #050508;
+        }
+        .about-inner {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .about-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+        .about-text h2 { 
+            font-size: 2rem; 
+            margin-bottom: 1rem; 
+            color: #F5F5F5;
+        }
+        .about-text p { 
+            font-size: 0.98rem; 
+            margin-bottom: 1.2rem; 
+            color: var(--dd-text-soft); 
+        }
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+        .about-pill {
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            background: #101018;
+            border: 1px solid var(--dd-border-soft);
+            font-size: 0.8rem;
+            color: #D0D0E0;
+        }
+        .about-pill strong {
+            display: block;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.1rem;
+            color: var(--dd-gold);
+        }
+
+        .about-card {
+            background: #101015;
+            border-radius: 18px;
+            padding: 1.6rem;
+            border: 1px solid var(--dd-border-soft);
+            box-shadow: 0 18px 38px rgba(0,0,0,0.7);
+        }
+        .about-card-label {
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            color: #9C9CB0;
+            margin-bottom: 0.4rem;
+        }
+        .about-card-main {
+            font-size: 1.05rem;
+            color: #F5F5F5;
+            margin-bottom: 0.8rem;
+        }
+        .about-card-sub {
+            font-size: 0.85rem;
+            color: var(--dd-text-soft);
+            margin-bottom: 1.1rem;
+        }
+        .about-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .about-badges span {
+            padding: 6px 11px;
+            border-radius: 999px;
+            border: 1px solid var(--dd-border-soft);
+            font-size: 0.72rem;
+            color: #CBCBDB;
+            background: #050508;
+        }
 
         /* Services Section */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card { background: white; padding: 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card i { font-size: 3rem; color: #007bff; margin-bottom: 1rem; }
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #1a1a1a; }
-        .service-card p { opacity: 0.8; }
+        .services-wrapper {
+            background: radial-gradient(circle at top, rgba(201,168,106,0.12), transparent 55%);
+            padding: 4rem 0 1rem 0;
+        }
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 2rem; 
+        }
+        .service-card { 
+            background: #101015; 
+            padding: 2rem 1.7rem; 
+            border-radius: 18px; 
+            text-align: left; 
+            box-shadow: 0 12px 35px rgba(0,0,0,0.7); 
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; 
+            border: 1px solid var(--dd-border-soft);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201,168,106,0.09), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 44px rgba(0,0,0,0.85);
+            border-color: var(--dd-gold-soft);
+        }
+        .service-icon { 
+            font-size: 1.8rem; 
+            color: var(--dd-gold); 
+            margin-bottom: 1rem; 
+        }
+        .service-kicker {
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            color: #8F8FA0;
+            margin-bottom: 0.4rem;
+        }
+        .service-card h3 { 
+            font-size: 1.26rem; 
+            margin-bottom: 0.7rem; 
+            color: #F5F5F5; 
+        }
+        .service-card p { 
+            opacity: 0.88; 
+            font-size: 0.92rem;
+            color: var(--dd-text-soft);
+            margin-bottom: 1.2rem;
+        }
+        .service-meta {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.7px;
+            color: #A0A0B2;
+        }
 
         /* Testimonials Section */
-        .testimonials { background: #f8f9fa; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .testimonial-card { background: white; padding: 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
-        .testimonial-card p { font-style: italic; margin-bottom: 1rem; }
-        .testimonial-card cite { font-weight: bold; color: #007bff; }
+        .testimonials {
+            background: #050508;
+        }
+        .testimonials-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 2rem; 
+        }
+        .testimonial-card { 
+            background: #101015; 
+            padding: 1.8rem 1.6rem; 
+            border-radius: 18px; 
+            text-align: left; 
+            box-shadow: 0 14px 32px rgba(0,0,0,0.7);
+            border: 1px solid var(--dd-border-soft);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: "“";
+            position: absolute;
+            top: 8px;
+            right: 18px;
+            font-size: 3rem;
+            color: rgba(201,168,106,0.25);
+            font-family: 'Playfair Display', serif;
+        }
+        .testimonial-card p { 
+            font-style: italic; 
+            margin-bottom: 1rem; 
+            color: #D8D8E3;
+            font-size: 0.95rem;
+        }
+        .testimonial-card cite { 
+            font-weight: 600; 
+            color: var(--dd-gold); 
+            font-size: 0.9rem;
+        }
+        .testimonial-role {
+            display: block;
+            font-size: 0.78rem;
+            color: #8F8FA0;
+            margin-top: 0.2rem;
+        }
 
         /* Contact Section */
-        .contact { text-align: center; }
-        .contact-content { max-width: 600px; margin: 0 auto; }
-        .contact h2 { margin-bottom: 1rem; }
-        form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: 2rem auto; }
-        input, textarea { padding: 1rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
-        .btn-secondary { background: #007bff; color: white; }
-        .btn-secondary:hover { background: #0056b3; transform: translateY(-2px); }
+        .contact {
+            background: radial-gradient(circle at top, rgba(201,168,106,0.16), transparent 60%);
+        }
+        .contact-inner {
+            max-width: 720px; 
+            margin: 0 auto; 
+            text-align: center;
+        }
+        .contact-inner p {
+            color: var(--dd-text-soft);
+            max-width: 520px;
+            margin: 0.7rem auto 2rem auto;
+            font-size: 0.96rem;
+        }
+        form { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1rem; 
+            max-width: 520px; 
+            margin: 0 auto 1rem auto; 
+        }
+        input, textarea { 
+            padding: 0.95rem 1rem; 
+            border-radius: 999px; 
+            font-size: 0.95rem; 
+            background: #050508; 
+            border: 1px solid var(--dd-border-soft); 
+            color: #F5F5F5; 
+            outline: none; 
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+        textarea {
+            border-radius: 18px;
+            resize: vertical;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #6E6E80;
+        }
+        input:focus, textarea:focus {
+            border-color: var(--dd-gold);
+            box-shadow: 0 0 0 1px rgba(201,168,106,0.5);
+            background: #080810;
+        }
+        .contact-note {
+            font-size: 0.78rem;
+            color: #8888A0;
+            margin-top: 0.3rem;
+        }
+
+        .btn-secondary { 
+            background: var(--dd-gold); 
+            color: #050508; 
+        }
+        .btn-secondary:hover { 
+            background: #E0C585; 
+            transform: translateY(-2px); 
+            box-shadow: 0 0 18px rgba(201,168,106,0.7); 
+        }
 
         /* Footer */
-        footer { background: #1a1a1a; color: white; text-align: center; padding: 2rem 0; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; list-style: none; flex-wrap: wrap; }
-        .footer-links a { color: #ccc; transition: color 0.3s; }
-        .footer-links a:hover { color: #007bff; }
-        .social-links { display: flex; justify-content: center; gap: 1rem; margin: 1rem 0; flex-wrap: wrap; }
-        .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #333; color: white; border-radius: 50%; transition: all 0.3s; }
-        .social-links a:hover { background: #007bff; transform: translateY(-2px); }
-        .social-links i { font-size: 1.2rem; }
-        .email-link { display: inline-block; margin-top: 1rem; color: #ccc; transition: color 0.3s; }
-        .email-link:hover { color: #007bff; }
+        footer { 
+            background: #050508; 
+            color: #8E8E9E; 
+            text-align: center; 
+            padding: 2.3rem 0 2.4rem 0; 
+            border-top: 1px solid rgba(201,168,106,0.2);
+        }
+        .footer-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 2rem; 
+            margin-bottom: 1.2rem; 
+            list-style: none; 
+            flex-wrap: wrap; 
+            font-size: 0.85rem;
+        }
+        .footer-links a { 
+            color: #A8A8B8; 
+            transition: color 0.3s; 
+        }
+        .footer-links a:hover { 
+            color: var(--dd-gold); 
+        }
+        .social-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 0.7rem; 
+            margin: 0.7rem 0 0.9rem 0; 
+            flex-wrap: wrap; 
+        }
+        .social-links a { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 38px; 
+            height: 38px; 
+            background: #101015; 
+            color: white; 
+            border-radius: 999px; 
+            transition: all 0.3s; 
+            border: 1px solid var(--dd-border-soft);
+            font-size: 0.88rem;
+        }
+        .social-links a:hover { 
+            background: var(--dd-gold); 
+            color: #050508;
+            transform: translateY(-2px); 
+            box-shadow: 0 0 14px rgba(201,168,106,0.7);
+        }
+        .email-link { 
+            display: inline-block; 
+            margin-top: 0.3rem; 
+            color: #A8A8B8; 
+            transition: color 0.3s; 
+            font-size: 0.9rem;
+        }
+        .email-link:hover { 
+            color: var(--dd-gold); 
+        }
+        footer p {
+            margin-top: 0.7rem;
+            font-size: 0.8rem;
+            color: #7E7E8F;
+        }
 
-        /* Responsive Animations */
-        @media (max-width: 768px) { section { padding: 3rem 0; } .section-title { font-size: 2rem; } }
+        /* Responsive */
+        @media (max-width: 768px) { 
+            section { padding: 3.5rem 0; } 
+            .section-title { font-size: 2rem; }
+            .hero { text-align: center; }
+            .hero-actions { justify-content: center; }
+            .hero-meta { justify-content: center; }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">Digital Dominion</div>
+            <div class="logo">Digital <span>Dominion</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#about">Studio</a></li>
+                <li><a href="#services">Capabilities</a></li>
+                <li><a href="#testimonials">Proof</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Book a consultation</a></li>
             </ul>
             <div class="mobile-menu" onclick="toggleMenu()">
                 <span></span>
@@ -113,87 +724,239 @@
         </nav>
     </header>
 
+    <!-- HERO -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Innovative Software Solutions for Tomorrow's Enterprises</h1>
-            <p>Transform your business with custom software, cloud integration, and AI-driven strategies. Partner with us for scalable, secure digital excellence.</p>
-            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-kicker">Precision Software • Operational Excellence</div>
+                <h1>Software engineered for <span>accuracy, reliability,</span> and scale.</h1>
+                <p>
+                    Digital Dominion Enterprise builds precision-driven tools that automate workflows, 
+                    reduce manual errors, and give you real-time control over your operations — from 
+                    the warehouse floor to the cloud.
+                </p>
+                
+                <div class="hero-meta">
+                    <span>Logistics & Ops Automation</span>
+                    <span>Python • Excel VBA • Cloud</span>
+                    <span>Data-First Design</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        Start a precision project
+                    </a>
+                    <a href="#services" class="btn btn-outline">
+                        <i class="fas fa-arrow-right"></i> View capabilities
+                    </a>
+                </div>
+            </div>
+
+            <aside class="hero-precision-card">
+                <div class="hero-precision-header">
+                    <div>
+                        <div class="hero-precision-title">Live Operational Insight</div>
+                        <div class="hero-precision-sub">Custom-built tools for measurable impact.</div>
+                    </div>
+                    <div class="hero-precision-chip">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                </div>
+                <div class="hero-precision-metric">99.8%+</div>
+                <div class="hero-precision-sub">Data accuracy across automated workflows.</div>
+                <div class="hero-precision-tags">
+                    <span>Inbound/Outbound automation</span>
+                    <span>Warehouse label systems</span>
+                    <span>Excel → Python migration</span>
+                    <span>ASRS & WMS integration</span>
+                </div>
+            </aside>
         </div>
     </section>
 
-    <section id="about" class="about container">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Who We Are</h2>
-                <p>Digital Dominion Enterprise is a leading software development firm specializing in bespoke solutions that drive efficiency and innovation. With over a decade of experience, our team of experts delivers results that exceed expectations.</p>
-                <p>From startups to Fortune 500 companies, we craft software that scales with your ambitions.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://via.placeholder.com/500x400?text=Team+Collaboration" alt="Our Team Collaborating">
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-kicker">About the studio</div>
+            <h2 class="section-title">A precision partner for real-world operations.</h2>
+
+            <div class="about-inner">
+                <div class="about-text">
+                    <h2>From spreadsheets to fully-automated systems.</h2>
+                    <p>
+                        Digital Dominion Enterprise specialises in pragmatic, precision-built software for 
+                        logistics, warehousing, and operational teams. Every solution starts from your actual 
+                        workflow — not from a generic template.
+                    </p>
+                    <p>
+                        Whether it’s extracting data from PDFs, building Excel/VBA automation, or designing 
+                        Python applications and cloud-ready tools, our focus is the same: minimal friction, 
+                        measurable results, and systems your team will actually use.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="about-pill">
+                            <strong>Execution-first</strong>
+                            Built, tested, and hardened inside real operations.
+                        </div>
+                        <div class="about-pill">
+                            <strong>Detail-obsessed</strong>
+                            Precise handling of data, labels, and edge-cases.
+                        </div>
+                        <div class="about-pill">
+                            <strong>Scalable paths</strong>
+                            Local scripts today, cloud-ready architecture tomorrow.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-card-label">Core philosophy</div>
+                    <div class="about-card-main">
+                        Every line of code is written with one question in mind:  
+                        <em>“Does this make the work on the ground cleaner and more precise?”</em>
+                    </div>
+                    <div class="about-card-sub">
+                        From PDF-to-Excel converters and HU matchers to billing engines and QR-based 
+                        consumable apps, each solution is tuned for speed, clarity, and zero guesswork 
+                        for the end user.
+                    </div>
+                    <div class="about-badges">
+                        <span>Real-world logistics projects</span>
+                        <span>Warehouse & ASRS experience</span>
+                        <span>Python • Excel VBA • Automation</span>
+                        <span>Digital transformation mindset</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="container">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services">
-            <div class="service-card">
-                <i class="fas fa-code"></i>
-                <h3>Custom Software Development</h3>
-                <p>Tailored applications built with modern stacks like React, Node.js, and Python to meet your unique business needs.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-cloud"></i>
-                <h3>Cloud Solutions</h3>
-                <p>Migrate and optimize on AWS, Azure, or GCP for seamless scalability, security, and cost-efficiency.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-robot"></i>
-                <h3>AI & Machine Learning</h3>
-                <p>Integrate intelligent systems for predictive analytics, automation, and enhanced decision-making.</p>
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="services-wrapper">
+            <div class="container">
+                <div class="section-kicker">Capabilities</div>
+                <h2 class="section-title">Precision-built for your operations.</h2>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="service-kicker">Custom engineering</div>
+                        <h3>Python & Desktop Automation</h3>
+                        <p>
+                            Bespoke Python and desktop tools that automate repetitive tasks: HU matching, 
+                            PDF data extraction, label generation, billing engines, and more — designed 
+                            to run reliably on your existing infrastructure.
+                        </p>
+                        <div class="service-meta">
+                            Designed for 24/7 operational environments.
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <div class="service-kicker">Excel, refined</div>
+                        <h3>Excel & VBA Precision Systems</h3>
+                        <p>
+                            High-accuracy Excel/VBA solutions for reporting, inbound/outbound control, 
+                            temperature tracking, and structured data handling — with clean interfaces 
+                            your team already understands.
+                        </p>
+                        <div class="service-meta">
+                            Perfect for teams living in Excel.
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="service-kicker">Cloud-aware</div>
+                        <h3>Cloud-Ready & API Integrations</h3>
+                        <p>
+                            Blueprint and build paths from local scripts to cloud-ready services, including 
+                            API integrations, web dashboards, and structured data flows for long-term 
+                            scalability.
+                        </p>
+                        <div class="service-meta">
+                            Start local, scale when it matters.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials container">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p>"Digital Dominion transformed our outdated systems into a powerhouse. Their expertise is unmatched."</p>
-                <cite>- Jane Doe, CEO, TechCorp</cite>
-            </div>
-            <div class="testimonial-card">
-                <p>"Seamless cloud migration with zero downtime. Highly recommend for enterprise needs."</p>
-                <cite>- John Smith, CTO, Innovate Inc.</cite>
-            </div>
-            <div class="testimonial-card">
-                <p>"AI solutions that delivered ROI in months. True partners in innovation."</p>
-                <cite>- Alex Rivera, Founder, StartupX</cite>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-kicker">Proof</div>
+            <h2 class="section-title">Tools built to earn their place on your desktop.</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>
+                        “What used to take multiple manual checks now runs with a single click. 
+                        The precision of the automation eliminated recurring data errors we had accepted for years.”
+                    </p>
+                    <cite>Operations Lead, Inbound Logistics</cite>
+                    <span class="testimonial-role">On custom HU & PO matching tools</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>
+                        “The Excel and Python tools built for us feel native to our workflow. 
+                        No fluff — just clear, reliable outcomes every time we run them.”
+                    </p>
+                    <cite>Warehouse Supervisor</cite>
+                    <span class="testimonial-role">On PDF-to-Excel and label automation</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>
+                        “We finally have a structured, repeatable way to handle our daily tasks. 
+                        The difference in clarity and control is obvious on the floor.”
+                    </p>
+                    <cite>Logistics Coordinator</cite>
+                    <span class="testimonial-role">On custom operational dashboards</span>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="contact-content">
-                <h2 class="section-title">Get In Touch</h2>
-                <p>Ready to elevate your software capabilities? Let's discuss your vision.</p>
+            <div class="contact-inner">
+                <div class="section-kicker">Contact</div>
+                <h2 class="section-title">Discuss a precision build for your team.</h2>
+                <p>
+                    Share your current workflow, challenges, or existing spreadsheets — and we’ll explore 
+                    how a focused, high-precision tool can remove friction and give you better control.
+                </p>
+
                 <form id="contactForm">
                     <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-secondary">Send Message</button>
+                    <input type="email" placeholder="Work Email" required>
+                    <input type="text" placeholder="Company / Team" required>
+                    <textarea placeholder="Briefly describe your current process or problem." rows="5" required></textarea>
+                    <button type="submit" class="btn btn-secondary">Send project inquiry</button>
                 </form>
+                <div class="contact-note">
+                    You’ll receive a reply with clarifying questions and suggested next steps.
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <ul class="footer-links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="#home">Back to top</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
         </ul>
         <div class="social-links">
             <a href="https://www.tiktok.com/@digitaldominium0?_t=ZS-90hZJrUarWD&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -202,8 +965,10 @@
             <a href="https://www.facebook.com/profile.php?id=61577351431267" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="https://wa.me/601125830761" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <a href="mailto:Davidraja@digitaldominiumenterprise.com" class="email-link" aria-label="Email Us">Davidraja@digitaldominiumenterprise.com</a>
-        <p>&copy; 2025 Digital Dominion Enterprise. All rights reserved.</p>
+        <a href="mailto:Davidraja@digitaldominiumenterprise.com" class="email-link" aria-label="Email Us">
+            Davidraja@digitaldominiumenterprise.com
+        </a>
+        <p>&copy; 2025 Digital Dominion Enterprise. Precision software for real operations.</p>
     </footer>
 
     <script>
@@ -216,19 +981,22 @@
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
-        // Form Submission (Demo Alert)
+        // Contact Form (Demo)
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! Your message has been sent. We\'ll respond soon.');
+            alert('Thank you for reaching out. Your inquiry has been recorded.');
             this.reset();
         });
 
-        // Intersection Observer for Animations (Optional Enhancement)
+        // Intersection Observer for subtle reveal animations
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -236,8 +1004,9 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        });
-        document.querySelectorAll('.service-card, .testimonial-card').forEach(el => {
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .testimonial-card, .about-card, .about-text').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
