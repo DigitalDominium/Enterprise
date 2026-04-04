@@ -1,1017 +1,1447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Dominium Enterprise - Precision Software Engineering</title>
-    <meta name="description" content="Digital Dominium Enterprise delivers precision-built software, automation, and cloud-first solutions for businesses that demand reliability and performance.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Dominium Enterprise — Precision Software Engineering</title>
+<meta name="description" content="Digital Dominium Enterprise delivers precision-built software, automation, and cloud-first solutions for businesses that demand reliability and performance.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    <style>
-        /* Reset and Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            line-height: 1.6; 
-            color: #E0E0E0; 
-            background: #050508; 
-            overflow-x: hidden; 
-            letter-spacing: 0.2px;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        a { text-decoration: none; }
-        button, .btn { 
-            cursor: pointer; 
-            border: none; 
-            border-radius: 999px; 
-            padding: 12px 28px; 
-            font-weight: 600; 
-            transition: all 0.3s ease; 
-            font-size: 0.95rem;
-            letter-spacing: 0.6px;
-        }
+:root{
+--gold:#B8942A;
+--gold-light:#D8B24C;
+--gold-soft:#E2C56B;
+--gold-dim:rgba(184,148,42,0.18);
+--gold-line:rgba(184,148,42,0.42);
+--ink:#06060A;
+--ink-2:#0E0E14;
+--ink-3:#171720;
+--ink-4:#20202B;
+--text:#F1EBDD;
+--text-soft:#D5CFBF;
+--text-muted:#B4AD9F;
+--text-faint:#8D867A;
+--border:rgba(255,255,255,0.08);
+--border-strong:rgba(255,255,255,0.12);
+--shadow-gold:0 0 28px rgba(184,148,42,0.28);
+}
 
-        /* Color Tokens */
-        :root {
-            --dd-gold: #C9A86A;
-            --dd-gold-soft: rgba(201,168,106,0.3);
-            --dd-bg-deep: #050508;
-            --dd-bg-panel: #101015;
-            --dd-bg-soft: #14141C;
-            --dd-text-soft: #B0B0C0;
-            --dd-border-soft: rgba(255,255,255,0.07);
-        }
+html{scroll-behavior:smooth}
 
-        /* Typography */
-        h1, h2, h3, .logo {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 0.6px;
-        }
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--ink);
+color:var(--text);
+overflow-x:hidden;
+line-height:1.72;
+font-size:17px;
+-webkit-font-smoothing:antialiased;
+text-rendering:optimizeLegibility;
+}
 
-        .section-title {
-            text-align: center; 
-            font-size: 2.4rem; 
-            margin-bottom: 3rem; 
-            color: #F5F5F5; 
-            position: relative;
-        }
-        .section-title::after { 
-            content: ''; 
-            position: absolute; 
-            bottom: -14px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: 70px; 
-            height: 2px; 
-            background: var(--dd-gold); 
-            opacity: 0.9;
-        }
-        .section-kicker {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.75rem;
-            color: var(--dd-gold);
-            text-align: center;
-            margin-bottom: 0.6rem;
-        }
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
 
-        /* Header & Navigation */
-        header { 
-            background: rgba(5,5,8,0.96); 
-            backdrop-filter: blur(16px); 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 25px rgba(0,0,0,0.6);
-            border-bottom: 1px solid rgba(201,168,106,0.25);
-        }
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 0.9rem 0; 
-        }
-        .logo { 
-            font-size: 1.7rem; 
-            font-weight: 700; 
-            color: var(--dd-gold); 
-            letter-spacing: 1px;
-        }
-        .logo span {
-            font-weight: 600;
-            color: #F5F5F5;
-        }
-        .nav-links { 
-            display: flex; 
-            list-style: none; 
-            gap: 2rem; 
-            align-items: center;
-        }
-        .nav-links a { 
-            color: #F5F5F5; 
-            font-weight: 400; 
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1.8px;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 0;
-            height: 1px;
-            background: var(--dd-gold);
-            transition: width 0.25s ease;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .nav-cta {
-            border-radius: 999px;
-            border: 1px solid var(--dd-gold-soft);
-            padding: 7px 18px;
-            font-size: 0.8rem;
-            color: var(--dd-gold);
-            text-transform: uppercase;
-        }
-        .nav-cta:hover {
-            background: var(--dd-gold);
-            color: #050508;
-            box-shadow: 0 0 16px rgba(201,168,106,0.6);
-        }
+body::before{
+content:'';
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:0;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+opacity:0.34;
+}
 
-        .mobile-menu { display: none; flex-direction: column; cursor: pointer; }
-        .mobile-menu span { width: 22px; height: 2px; background: #F5F5F5; margin: 3px 0; transition: 0.3s; }
-        
-        @media (max-width: 768px) {
-            .nav-links { 
-                display: none; 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                width: 100%; 
-                background: #050508; 
-                flex-direction: column; 
-                padding: 1rem 1.5rem; 
-                box-shadow: 0 12px 30px rgba(0,0,0,0.6); 
-                border-bottom: 1px solid rgba(201,168,106,0.25);
-            }
-            .nav-links.active { display: flex; }
-            .mobile-menu { display: flex; }
-            .nav-cta { align-self: flex-start; margin-top: 0.5rem; }
-        }
+/* HEADER */
+header{
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:900;
+padding:0 2rem;
+border-bottom:1px solid var(--border);
+background:rgba(6,6,10,0.9);
+backdrop-filter:blur(20px);
+}
 
-        /* Hero Section */
-        .hero { 
-            background: radial-gradient(circle at top left, rgba(201,168,106,0.16), transparent 55%), 
-                        radial-gradient(circle at bottom right, rgba(201,168,106,0.12), transparent 55%), 
-                        linear-gradient(135deg, #050508 0%, #101015 70%, #050508 100%);
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: left; 
-            color: white; 
-            position: relative; 
-            overflow: hidden; 
-            padding-top: 80px;
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-        .hero::before { 
-            content: ''; 
-            position: absolute; 
-            top: -40px; 
-            right: -80px; 
-            width: 320px; 
-            height: 320px; 
-            background: radial-gradient(circle, rgba(201,168,106,0.25), transparent 60%);
-            opacity: 0.7; 
-            filter: blur(2px);
-        }
-        .hero-content { 
-            max-width: 640px; 
-            z-index: 1; 
-            animation: fadeInUp 1s ease; 
-        }
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+height:72px;
+max-width:1320px;
+margin:0 auto;
+gap:1rem;
+}
 
-        .hero-kicker {
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            color: var(--dd-gold);
-            margin-bottom: 0.9rem;
-        }
-        .hero h1 { 
-            font-size: 2.9rem; 
-            margin-bottom: 1rem; 
-            color: #F5F5F5;
-        }
-        .hero h1 span {
-            color: var(--dd-gold);
-        }
-        .hero p { 
-            font-size: 1.05rem; 
-            margin-bottom: 1.8rem; 
-            opacity: 0.92; 
-            color: var(--dd-text-soft);
-        }
+.logo{
+font-family:'Cormorant Garamond',serif;
+font-size:1.7rem;
+font-weight:600;
+letter-spacing:0.04em;
+color:var(--text);
+}
 
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 1.8px;
-            color: #8F8FA0;
-            margin-bottom: 2rem;
-        }
-        .hero-meta span {
-            position: relative;
-            padding-left: 16px;
-        }
-        .hero-meta span::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            border: 1px solid var(--dd-gold);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+.logo em{font-style:normal;color:var(--gold)}
 
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.9rem;
-            align-items: center;
-        }
-        .btn-primary { 
-            background: var(--dd-gold); 
-            color: #050508; 
-            box-shadow: 0 0 0 rgba(201,168,106,0.5);
-        }
-        .btn-primary:hover { 
-            background: #E0C585; 
-            transform: translateY(-2px); 
-            box-shadow: 0 0 18px rgba(201,168,106,0.7); 
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--dd-gold-soft);
-            color: var(--dd-text-soft);
-        }
-        .btn-outline i {
-            margin-right: 8px;
-        }
-        .btn-outline:hover {
-            border-color: var(--dd-gold); 
-            color: var(--dd-gold);
-            box-shadow: 0 0 12px rgba(201,168,106,0.5);
-        }
+.nav-links{
+display:flex;
+gap:2rem;
+list-style:none;
+align-items:center;
+}
 
-        .hero-precision-card {
-            z-index: 1;
-            background: rgba(16,16,26,0.95);
-            border-radius: 18px;
-            padding: 1.6rem 1.5rem;
-            border: 1px solid var(--dd-border-soft);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.65);
-            max-width: 360px;
-            margin-left: auto;
-            position: relative;
-            overflow: hidden;
-        }
-        @media (max-width: 900px) {
-            .hero-precision-card { 
-                margin: 2rem auto 0 auto; 
-            }
-        }
-        .hero-precision-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(201,168,106,0.08), transparent 70%);
-            pointer-events: none;
-        }
-        .hero-precision-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .hero-precision-title {
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #BEBECC;
-        }
-        .hero-precision-chip {
-            width: 32px;
-            height: 32px;
-            border-radius: 12px;
-            border: 1px solid var(--dd-gold-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.95rem;
-            color: var(--dd-gold);
-        }
-        .hero-precision-metric {
-            font-size: 1.8rem;
-            color: #F5F5F5;
-            margin-bottom: 0.25rem;
-        }
-        .hero-precision-sub {
-            font-size: 0.8rem;
-            color: var(--dd-text-soft);
-            margin-bottom: 1.2rem;
-        }
-        .hero-precision-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            font-size: 0.72rem;
-        }
-        .hero-precision-tags span {
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid var(--dd-border-soft);
-            background: rgba(5,5,8,0.85);
-            color: #CBCBDB;
-        }
+.nav-links a{
+font-size:0.9rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:var(--text-muted);
+transition:color 0.22s ease, opacity 0.22s ease;
+}
 
-        @keyframes fadeInUp { 
-            from { opacity: 0; transform: translateY(30px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
+.nav-links a:hover{color:var(--gold-light)}
 
-        /* Sections */
-        section { padding: 5rem 0; }
+.nav-book{
+padding:10px 20px;
+border-radius:3px;
+border:1px solid var(--gold-line);
+color:var(--gold-light);
+font-size:0.84rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+transition:all 0.25s ease;
+}
 
-        /* About Section */
-        .about {
-            background: #050508;
-        }
-        .about-inner {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        @media (max-width: 900px) {
-            .about-inner {
-                grid-template-columns: 1fr;
-            }
-        }
-        .about-text h2 { 
-            font-size: 2rem; 
-            margin-bottom: 1rem; 
-            color: #F5F5F5;
-        }
-        .about-text p { 
-            font-size: 0.98rem; 
-            margin-bottom: 1.2rem; 
-            color: var(--dd-text-soft); 
-        }
-        .about-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.2rem;
-            margin-top: 0.8rem;
-        }
-        .about-pill {
-            padding: 0.8rem 1rem;
-            border-radius: 14px;
-            background: #101018;
-            border: 1px solid var(--dd-border-soft);
-            font-size: 0.8rem;
-            color: #D0D0E0;
-        }
-        .about-pill strong {
-            display: block;
-            font-size: 0.82rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.1rem;
-            color: var(--dd-gold);
-        }
+.nav-book:hover{
+background:var(--gold);
+color:var(--ink);
+border-color:var(--gold);
+box-shadow:var(--shadow-gold);
+}
 
-        .about-card {
-            background: #101015;
-            border-radius: 18px;
-            padding: 1.6rem;
-            border: 1px solid var(--dd-border-soft);
-            box-shadow: 0 18px 38px rgba(0,0,0,0.7);
-        }
-        .about-card-label {
-            text-transform: uppercase;
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            color: #9C9CB0;
-            margin-bottom: 0.4rem;
-        }
-        .about-card-main {
-            font-size: 1.05rem;
-            color: #F5F5F5;
-            margin-bottom: 0.8rem;
-        }
-        .about-card-sub {
-            font-size: 0.85rem;
-            color: var(--dd-text-soft);
-            margin-bottom: 1.1rem;
-        }
-        .about-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-        .about-badges span {
-            padding: 6px 11px;
-            border-radius: 999px;
-            border: 1px solid var(--dd-border-soft);
-            font-size: 0.72rem;
-            color: #CBCBDB;
-            background: #050508;
-        }
+.hamburger{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+}
 
-        /* Services Section */
-        .services-wrapper {
-            background: radial-gradient(circle at top, rgba(201,168,106,0.12), transparent 55%);
-            padding: 4rem 0 1rem 0;
-        }
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-            gap: 2rem; 
-        }
-        .service-card { 
-            background: #101015; 
-            padding: 2rem 1.7rem; 
-            border-radius: 18px; 
-            text-align: left; 
-            box-shadow: 0 12px 35px rgba(0,0,0,0.7); 
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; 
-            border: 1px solid var(--dd-border-soft);
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(201,168,106,0.09), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.25s ease;
-        }
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        .service-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 44px rgba(0,0,0,0.85);
-            border-color: var(--dd-gold-soft);
-        }
-        .service-icon { 
-            font-size: 1.8rem; 
-            color: var(--dd-gold); 
-            margin-bottom: 1rem; 
-        }
-        .service-kicker {
-            text-transform: uppercase;
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            color: #8F8FA0;
-            margin-bottom: 0.4rem;
-        }
-        .service-card h3 { 
-            font-size: 1.26rem; 
-            margin-bottom: 0.7rem; 
-            color: #F5F5F5; 
-        }
-        .service-card p { 
-            opacity: 0.88; 
-            font-size: 0.92rem;
-            color: var(--dd-text-soft);
-            margin-bottom: 1.2rem;
-        }
-        .service-meta {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 1.7px;
-            color: #A0A0B2;
-        }
+.hamburger span{
+display:block;
+width:24px;
+height:1px;
+background:var(--text-muted);
+}
 
-        /* Testimonials Section */
-        .testimonials {
-            background: #050508;
-        }
-        .testimonials-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-            gap: 2rem; 
-        }
-        .testimonial-card { 
-            background: #101015; 
-            padding: 1.8rem 1.6rem; 
-            border-radius: 18px; 
-            text-align: left; 
-            box-shadow: 0 14px 32px rgba(0,0,0,0.7);
-            border: 1px solid var(--dd-border-soft);
-            position: relative;
-        }
-        .testimonial-card::before {
-            content: "“";
-            position: absolute;
-            top: 8px;
-            right: 18px;
-            font-size: 3rem;
-            color: rgba(201,168,106,0.25);
-            font-family: 'Playfair Display', serif;
-        }
-        .testimonial-card p { 
-            font-style: italic; 
-            margin-bottom: 1rem; 
-            color: #D8D8E3;
-            font-size: 0.95rem;
-        }
-        .testimonial-card cite { 
-            font-weight: 600; 
-            color: var(--dd-gold); 
-            font-size: 0.9rem;
-        }
-        .testimonial-role {
-            display: block;
-            font-size: 0.78rem;
-            color: #8F8FA0;
-            margin-top: 0.2rem;
-        }
+@media(max-width:820px){
+header{padding:0 1.15rem}
+.nav{height:68px}
+.nav-links{
+display:none;
+position:fixed;
+inset:68px 0 0 0;
+background:rgba(6,6,10,0.98);
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:2rem;
+padding:2rem;
+}
+.nav-links.open{display:flex}
+.hamburger{display:flex}
+}
 
-        /* Contact Section */
-        .contact {
-            background: radial-gradient(circle at top, rgba(201,168,106,0.16), transparent 60%);
-        }
-        .contact-inner {
-            max-width: 720px; 
-            margin: 0 auto; 
-            text-align: center;
-        }
-        .contact-inner p {
-            color: var(--dd-text-soft);
-            max-width: 520px;
-            margin: 0.7rem auto 2rem auto;
-            font-size: 0.96rem;
-        }
-        form { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 1rem; 
-            max-width: 520px; 
-            margin: 0 auto 1rem auto; 
-        }
-        input, textarea { 
-            padding: 0.95rem 1rem; 
-            border-radius: 999px; 
-            font-size: 0.95rem; 
-            background: #050508; 
-            border: 1px solid var(--dd-border-soft); 
-            color: #F5F5F5; 
-            outline: none; 
-            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-        textarea {
-            border-radius: 18px;
-            resize: vertical;
-        }
-        input::placeholder, textarea::placeholder {
-            color: #6E6E80;
-        }
-        input:focus, textarea:focus {
-            border-color: var(--dd-gold);
-            box-shadow: 0 0 0 1px rgba(201,168,106,0.5);
-            background: #080810;
-        }
-        .contact-note {
-            font-size: 0.78rem;
-            color: #8888A0;
-            margin-top: 0.3rem;
-        }
+/* HERO */
+.hero{
+position:relative;
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:124px 2rem 88px;
+overflow:hidden;
+}
 
-        .btn-secondary { 
-            background: var(--dd-gold); 
-            color: #050508; 
-        }
-        .btn-secondary:hover { 
-            background: #E0C585; 
-            transform: translateY(-2px); 
-            box-shadow: 0 0 18px rgba(201,168,106,0.7); 
-        }
+.hero-bg-lines{
+position:absolute;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+}
 
-        /* Footer */
-        footer { 
-            background: #050508; 
-            color: #8E8E9E; 
-            text-align: center; 
-            padding: 2.3rem 0 2.4rem 0; 
-            border-top: 1px solid rgba(201,168,106,0.2);
-        }
-        .footer-links { 
-            display: flex; 
-            justify-content: center; 
-            gap: 2rem; 
-            margin-bottom: 1.2rem; 
-            list-style: none; 
-            flex-wrap: wrap; 
-            font-size: 0.85rem;
-        }
-        .footer-links a { 
-            color: #A8A8B8; 
-            transition: color 0.3s; 
-        }
-        .footer-links a:hover { 
-            color: var(--dd-gold); 
-        }
-        .social-links { 
-            display: flex; 
-            justify-content: center; 
-            gap: 0.7rem; 
-            margin: 0.7rem 0 0.9rem 0; 
-            flex-wrap: wrap; 
-        }
-        .social-links a { 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            width: 38px; 
-            height: 38px; 
-            background: #101015; 
-            color: white; 
-            border-radius: 999px; 
-            transition: all 0.3s; 
-            border: 1px solid var(--dd-border-soft);
-            font-size: 0.88rem;
-        }
-        .social-links a:hover { 
-            background: var(--dd-gold); 
-            color: #050508;
-            transform: translateY(-2px); 
-            box-shadow: 0 0 14px rgba(201,168,106,0.7);
-        }
-        .email-link { 
-            display: inline-block; 
-            margin-top: 0.3rem; 
-            color: #A8A8B8; 
-            transition: color 0.3s; 
-            font-size: 0.9rem;
-        }
-        .email-link:hover { 
-            color: var(--dd-gold); 
-        }
-        footer p {
-            margin-top: 0.7rem;
-            font-size: 0.8rem;
-            color: #7E7E8F;
-        }
+.hero-bg-lines svg{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+opacity:0.12;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) { 
-            section { padding: 3.5rem 0; } 
-            .section-title { font-size: 2rem; }
-            .hero { text-align: center; }
-            .hero-actions { justify-content: center; }
-            .hero-meta { justify-content: center; }
-        }
-    </style>
+.hero-glow{
+position:absolute;
+top:-120px;
+right:-80px;
+width:600px;
+height:600px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(184,148,42,0.22) 0%,transparent 70%);
+pointer-events:none;
+}
+
+.hero-inner{
+max-width:1320px;
+margin:0 auto;
+width:100%;
+display:grid;
+grid-template-columns:minmax(0,1fr) 400px;
+gap:4.5rem;
+align-items:center;
+}
+
+@media(max-width:960px){
+.hero-inner{grid-template-columns:1fr}
+}
+
+.hero-eyebrow{
+display:inline-flex;
+align-items:center;
+gap:10px;
+font-size:0.78rem;
+letter-spacing:0.18em;
+text-transform:uppercase;
+color:var(--gold-soft);
+margin-bottom:1.5rem;
+}
+
+.hero-eyebrow::before{
+content:'';
+display:block;
+width:30px;
+height:1px;
+background:var(--gold);
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(3.2rem,6vw,5.4rem);
+font-weight:600;
+line-height:1.02;
+color:#F6F1E4;
+letter-spacing:0.01em;
+margin-bottom:1.35rem;
+max-width:11ch;
+}
+
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+
+.hero-desc{
+font-size:1.1rem;
+color:var(--text-soft);
+max-width:650px;
+line-height:1.9;
+margin-bottom:2.4rem;
+font-weight:400;
+}
+
+.hero-actions{
+display:flex;
+flex-wrap:wrap;
+gap:1rem;
+margin-bottom:3rem;
+}
+
+.btn-gold,
+.btn-ghost{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+min-height:50px;
+padding:14px 28px;
+border-radius:3px;
+font-size:0.88rem;
+letter-spacing:0.11em;
+text-transform:uppercase;
+font-weight:600;
+transition:all 0.25s ease;
+}
+
+.btn-gold{
+background:var(--gold);
+color:var(--ink);
+border:1px solid var(--gold);
+}
+
+.btn-gold:hover{
+background:var(--gold-light);
+box-shadow:var(--shadow-gold);
+}
+
+.btn-ghost{
+border:1px solid var(--border-strong);
+color:var(--text-soft);
+background:transparent;
+}
+
+.btn-ghost:hover{
+border-color:var(--gold-line);
+color:var(--gold-light);
+background:rgba(255,255,255,0.02);
+}
+
+.hero-stats{
+display:flex;
+gap:2rem;
+flex-wrap:wrap;
+}
+
+.hero-stat{
+border-left:1px solid var(--gold-line);
+padding-left:1.15rem;
+}
+
+.hero-stat-num{
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;
+font-weight:600;
+color:#F4EFDF;
+line-height:1;
+margin-bottom:6px;
+}
+
+.hero-stat-label{
+font-size:0.8rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:var(--text-faint);
+}
+
+/* HERO CARD */
+.hero-card{
+background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
+border:1px solid var(--border);
+border-radius:6px;
+padding:2.2rem;
+position:relative;
+overflow:hidden;
+box-shadow:0 18px 36px rgba(0,0,0,0.22);
+}
+
+.hero-card::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:1px;
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.hero-card-badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+font-size:0.74rem;
+letter-spacing:0.16em;
+text-transform:uppercase;
+color:var(--gold-soft);
+margin-bottom:1.2rem;
+}
+
+.badge-dot{
+width:7px;
+height:7px;
+border-radius:50%;
+background:var(--gold);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%,100%{opacity:1}
+50%{opacity:0.4}
+}
+
+.hero-card-metric{
+font-family:'Cormorant Garamond',serif;
+font-size:3.4rem;
+font-weight:700;
+color:#F5F0E2;
+line-height:1;
+margin-bottom:0.35rem;
+}
+
+.hero-card-sub{
+font-size:0.96rem;
+color:var(--text-muted);
+line-height:1.75;
+margin-bottom:1.4rem;
+}
+
+.tag-cloud{
+display:flex;
+flex-wrap:wrap;
+gap:0.6rem;
+}
+
+.tag{
+padding:8px 12px;
+border-radius:3px;
+border:1px solid var(--border);
+background:var(--ink-4);
+font-size:0.8rem;
+color:var(--text-soft);
+letter-spacing:0.03em;
+line-height:1.4;
+}
+
+.tag-accent{
+border-color:var(--gold-line);
+color:var(--gold-light);
+}
+
+.divider{
+max-width:1320px;
+margin:0 auto;
+height:1px;
+background:var(--border);
+}
+
+/* SECTIONS */
+.section{
+padding:6.5rem 2rem;
+position:relative;
+}
+
+.section-inner{
+max-width:1320px;
+margin:0 auto;
+}
+
+.section-header{margin-bottom:4rem}
+
+.section-kicker{
+display:inline-flex;
+align-items:center;
+gap:10px;
+font-size:0.78rem;
+letter-spacing:0.18em;
+text-transform:uppercase;
+color:var(--gold-soft);
+margin-bottom:1rem;
+}
+
+.section-kicker::before{
+content:'';
+display:block;
+width:22px;
+height:1px;
+background:var(--gold);
+}
+
+.section-title{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(2.3rem,4vw,3.5rem);
+font-weight:600;
+color:#F4EFDF;
+line-height:1.08;
+letter-spacing:0.01em;
+}
+
+.section-title em{font-style:italic;color:var(--gold-light)}
+
+/* ABOUT */
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:4rem;
+align-items:start;
+}
+
+@media(max-width:860px){
+.about-grid{grid-template-columns:1fr}
+}
+
+.about-text p,
+.about-grid > div:first-child p{
+font-size:1.05rem;
+color:var(--text-soft);
+line-height:1.95;
+font-weight:400;
+margin-bottom:1.25rem;
+max-width:65ch;
+}
+
+.about-pillars{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1px;
+margin-top:2.3rem;
+border:1px solid var(--border);
+background:var(--border);
+}
+
+.pillar{
+padding:1.5rem 1.3rem;
+background:var(--ink-2);
+}
+
+@media(max-width:480px){
+.about-pillars{grid-template-columns:1fr}
+}
+
+.pillar-num{
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;
+font-weight:700;
+color:var(--gold);
+opacity:0.7;
+margin-bottom:0.45rem;
+}
+
+.pillar-title{
+font-size:0.88rem;
+letter-spacing:0.09em;
+text-transform:uppercase;
+color:var(--text);
+margin-bottom:0.45rem;
+}
+
+.pillar-desc{
+font-size:0.95rem;
+color:var(--text-muted);
+line-height:1.7;
+}
+
+.philosophy-card{
+background:var(--ink-3);
+border:1px solid var(--border);
+border-radius:6px;
+padding:2.1rem;
+position:relative;
+overflow:hidden;
+}
+
+.philosophy-card::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+bottom:0;
+width:2px;
+background:linear-gradient(180deg,var(--gold),transparent);
+}
+
+.philosophy-card blockquote{
+font-family:'Cormorant Garamond',serif;
+font-size:1.55rem;
+font-style:italic;
+color:#F4EFDF;
+line-height:1.55;
+margin-bottom:1.2rem;
+padding-left:1.2rem;
+}
+
+.badge-list{
+display:flex;
+flex-wrap:wrap;
+gap:0.55rem;
+}
+
+.badge{
+padding:7px 11px;
+border:1px solid var(--border);
+border-radius:3px;
+font-size:0.8rem;
+color:var(--text-muted);
+letter-spacing:0.03em;
+background:rgba(255,255,255,0.01);
+}
+
+/* SERVICES */
+.services-bg{background:var(--ink-2)}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1px;
+background:var(--border);
+}
+
+@media(max-width:760px){
+.services-grid{grid-template-columns:1fr}
+}
+
+.svc{
+background:var(--ink-2);
+padding:2.6rem 2rem;
+transition:background 0.3s ease, transform 0.3s ease;
+cursor:default;
+position:relative;
+overflow:hidden;
+}
+
+.svc::after{
+content:'';
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+height:1px;
+background:linear-gradient(90deg,transparent,var(--gold),transparent);
+opacity:0;
+transition:opacity 0.3s ease;
+}
+
+.svc:hover{
+background:var(--ink-3);
+transform:translateY(-2px);
+}
+
+.svc:hover::after{opacity:1}
+
+.svc-icon{
+width:48px;
+height:48px;
+border:1px solid var(--gold-line);
+border-radius:4px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:var(--gold);
+font-size:1.12rem;
+margin-bottom:1.5rem;
+}
+
+.svc-kicker{
+font-size:0.76rem;
+letter-spacing:0.17em;
+text-transform:uppercase;
+color:var(--gold-soft);
+margin-bottom:0.7rem;
+}
+
+.svc h3{
+font-family:'Cormorant Garamond',serif;
+font-size:1.75rem;
+font-weight:600;
+color:#F4EFDF;
+margin-bottom:0.95rem;
+line-height:1.2;
+}
+
+.svc p{
+font-size:1rem;
+color:var(--text-soft);
+line-height:1.9;
+font-weight:400;
+margin-bottom:1.4rem;
+}
+
+.svc-footer{
+font-size:0.8rem;
+letter-spacing:0.1em;
+text-transform:uppercase;
+color:var(--text-faint);
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.svc-footer::before{
+content:'';
+width:16px;
+height:1px;
+background:var(--text-faint);
+}
+
+/* PROCESS */
+.process-steps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:0;
+position:relative;
+}
+
+@media(max-width:720px){
+.process-steps{grid-template-columns:1fr 1fr}
+.process-connector{display:none}
+}
+
+@media(max-width:400px){
+.process-steps{grid-template-columns:1fr}
+}
+
+.process-connector{
+position:absolute;
+top:28px;
+left:calc(12.5%);
+right:calc(12.5%);
+height:1px;
+background:var(--border);
+z-index:0;
+}
+
+.step{
+position:relative;
+z-index:1;
+padding:0 1.35rem 2rem;
+text-align:center;
+}
+
+.step-num{
+width:58px;
+height:58px;
+border-radius:50%;
+border:1px solid var(--gold-line);
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:'Cormorant Garamond',serif;
+font-size:1.35rem;
+font-weight:600;
+color:var(--gold);
+background:var(--ink);
+margin:0 auto 1rem;
+}
+
+.step h4{
+font-size:0.95rem;
+letter-spacing:0.07em;
+text-transform:uppercase;
+color:var(--text);
+margin-bottom:0.55rem;
+}
+
+.step p{
+font-size:0.98rem;
+color:var(--text-muted);
+line-height:1.8;
+}
+
+/* TESTIMONIALS */
+.testimonials-bg{background:var(--ink)}
+
+.testi-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1.4rem;
+}
+
+@media(max-width:760px){
+.testi-grid{grid-template-columns:1fr}
+}
+
+.testi{
+background:var(--ink-2);
+border:1px solid var(--border);
+border-radius:6px;
+padding:2rem;
+position:relative;
+overflow:hidden;
+transition:border-color 0.3s ease, transform 0.3s ease;
+}
+
+.testi:hover{
+border-color:var(--gold-line);
+transform:translateY(-2px);
+}
+
+.testi-mark{
+position:absolute;
+top:1rem;
+right:1.4rem;
+font-family:'Cormorant Garamond',serif;
+font-size:4rem;
+line-height:1;
+color:var(--gold);
+opacity:0.12;
+}
+
+.testi p{
+font-family:'Cormorant Garamond',serif;
+font-size:1.2rem;
+font-style:italic;
+color:#E6DECD;
+line-height:1.75;
+margin-bottom:1.25rem;
+padding-right:1rem;
+}
+
+.testi-author cite{
+font-weight:700;
+font-size:0.94rem;
+color:#F4EFDF;
+font-style:normal;
+}
+
+.testi-author span{
+display:block;
+font-size:0.84rem;
+color:var(--text-faint);
+margin-top:4px;
+line-height:1.6;
+}
+
+/* CONTACT */
+.contact-bg{
+background:var(--ink-2);
+background-image:radial-gradient(ellipse at top,rgba(184,148,42,0.08) 0%,transparent 60%);
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:4rem;
+align-items:start;
+}
+
+@media(max-width:860px){
+.contact-grid{grid-template-columns:1fr}
+}
+
+.contact-left p{
+font-size:1.04rem;
+color:var(--text-soft);
+line-height:1.9;
+font-weight:400;
+margin:1.4rem 0 2.2rem;
+max-width:60ch;
+}
+
+.contact-details{
+display:flex;
+flex-direction:column;
+gap:1rem;
+}
+
+.contact-detail{
+display:flex;
+align-items:center;
+gap:1rem;
+padding:1rem 1.15rem;
+background:var(--ink-3);
+border:1px solid var(--border);
+border-radius:4px;
+}
+
+.contact-detail i{
+color:var(--gold);
+font-size:1rem;
+width:18px;
+text-align:center;
+}
+
+.contact-detail-text{
+font-size:0.98rem;
+color:var(--text-soft);
+line-height:1.7;
+}
+
+.contact-detail-text a{
+color:var(--text-soft);
+transition:color 0.2s ease;
+}
+
+.contact-detail-text a:hover{color:var(--gold-light)}
+
+form{
+display:flex;
+flex-direction:column;
+gap:1rem;
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1rem;
+}
+
+@media(max-width:480px){
+.form-row{grid-template-columns:1fr}
+}
+
+input,textarea,select{
+width:100%;
+padding:14px 16px;
+background:var(--ink-3);
+border:1px solid var(--border-strong);
+border-radius:4px;
+color:var(--text);
+font-family:'DM Sans',sans-serif;
+font-size:0.98rem;
+line-height:1.6;
+outline:none;
+transition:border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder{color:var(--text-faint)}
+
+input:focus,
+textarea:focus,
+select:focus{
+border-color:var(--gold-line);
+box-shadow:0 0 0 3px rgba(184,148,42,0.12);
+background:#1a1a24;
+}
+
+textarea{
+resize:vertical;
+min-height:152px;
+}
+
+.form-note{
+font-size:0.84rem;
+color:var(--text-faint);
+margin-top:0.8rem;
+text-align:center;
+line-height:1.7;
+}
+
+/* FOOTER */
+footer{
+background:var(--ink);
+border-top:1px solid var(--border);
+padding:3rem 2rem;
+}
+
+.footer-inner{
+max-width:1320px;
+margin:0 auto;
+display:grid;
+grid-template-columns:1fr auto 1fr;
+align-items:center;
+gap:2rem;
+}
+
+@media(max-width:700px){
+.footer-inner{
+grid-template-columns:1fr;
+text-align:center;
+}
+}
+
+.footer-logo{
+font-family:'Cormorant Garamond',serif;
+font-size:1.35rem;
+font-weight:600;
+color:var(--text);
+}
+
+.footer-logo em{font-style:normal;color:var(--gold)}
+
+.footer-links{
+display:flex;
+gap:1.5rem;
+list-style:none;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+font-size:0.86rem;
+letter-spacing:0.08em;
+text-transform:uppercase;
+color:var(--text-faint);
+transition:color 0.2s ease;
+}
+
+.footer-links a:hover{color:var(--gold-light)}
+
+.socials{
+display:flex;
+gap:0.7rem;
+justify-content:flex-end;
+flex-wrap:wrap;
+}
+
+@media(max-width:700px){
+.socials{justify-content:center}
+}
+
+.social-btn{
+width:40px;
+height:40px;
+border-radius:4px;
+border:1px solid var(--border);
+display:flex;
+align-items:center;
+justify-content:center;
+color:var(--text-faint);
+font-size:0.95rem;
+transition:all 0.25s ease;
+}
+
+.social-btn:hover{
+border-color:var(--gold-line);
+color:var(--gold);
+background:rgba(255,255,255,0.02);
+}
+
+.footer-copy{
+max-width:1320px;
+margin:2rem auto 0;
+padding-top:2rem;
+border-top:1px solid var(--border);
+text-align:center;
+font-size:0.84rem;
+color:var(--text-faint);
+letter-spacing:0.04em;
+line-height:1.7;
+}
+
+/* ANIMATIONS */
+.reveal{
+opacity:0;
+transform:translateY(24px);
+transition:opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:none;
+}
+
+/* SCROLL INDICATOR */
+.scroll-hint{
+position:absolute;
+bottom:2.3rem;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:8px;
+font-size:0.72rem;
+letter-spacing:0.18em;
+text-transform:uppercase;
+color:var(--text-faint);
+}
+
+.scroll-line{
+width:1px;
+height:40px;
+background:linear-gradient(180deg,var(--gold-line),transparent);
+animation:scrollAnim 1.8s ease infinite;
+}
+
+@keyframes scrollAnim{
+0%{transform:scaleY(0);transform-origin:top}
+50%{transform:scaleY(1);transform-origin:top}
+51%{transform:scaleY(1);transform-origin:bottom}
+100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+@media(max-width:640px){
+body{font-size:16px}
+.hero{padding:116px 1.15rem 82px}
+.section{padding:5.3rem 1.15rem}
+.hero h1{max-width:none}
+.hero-desc{font-size:1.02rem}
+.hero-stats{gap:1.2rem}
+.hero-card{padding:1.6rem}
+.scroll-hint{display:none}
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Digital <span>Dominium</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Studio</a></li>
-                <li><a href="#services">Capabilities</a></li>
-                <li><a href="#testimonials">Proof</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="nav-cta">Book a consultation</a></li>
-            </ul>
-            <div class="mobile-menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
 
-    <!-- HERO -->
-    <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-kicker">Precision Software • Operational Excellence</div>
-                <h1>Software engineered for <span>accuracy, reliability,</span> and scale.</h1>
-                <p>
-                    Digital Dominium Enterprise builds precision-driven tools that automate workflows, 
-                    reduce manual errors, and give you real-time control over your operations — from 
-                    the warehouse floor to the cloud.
-                </p>
-                
-                <div class="hero-meta">
-                    <span>Logistics & Ops Automation</span>
-                    <span>Python • Excel VBA • Cloud</span>
-                    <span>Data-First Design</span>
-                </div>
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <div class="logo">Digital <em>Dominium</em></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeMenu()">Studio</a></li>
+      <li><a href="#services" onclick="closeMenu()">Capabilities</a></li>
+      <li><a href="#process" onclick="closeMenu()">Process</a></li>
+      <li><a href="#testimonials" onclick="closeMenu()">Proof</a></li>
+      <li><a href="#contact" class="nav-book" onclick="closeMenu()">Book a consultation</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+</header>
 
-                <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">
-                        Start a precision project
-                    </a>
-                    <a href="#services" class="btn btn-outline">
-                        <i class="fas fa-arrow-right"></i> View capabilities
-                    </a>
-                </div>
-            </div>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-lines">
+    <svg viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="200" x2="1400" y2="200" stroke="#B8942A" stroke-width="0.5"/>
+      <line x1="0" y1="400" x2="1400" y2="400" stroke="#B8942A" stroke-width="0.5"/>
+      <line x1="0" y1="600" x2="1400" y2="600" stroke="#B8942A" stroke-width="0.5"/>
+      <line x1="200" y1="0" x2="200" y2="800" stroke="#B8942A" stroke-width="0.5"/>
+      <line x1="500" y1="0" x2="500" y2="800" stroke="#B8942A" stroke-width="0.5"/>
+      <line x1="900" y1="0" x2="900" y2="800" stroke="#B8942A" stroke-width="0.5"/>
+      <line x1="1200" y1="0" x2="1200" y2="800" stroke="#B8942A" stroke-width="0.5"/>
+      <circle cx="900" cy="400" r="160" stroke="#B8942A" stroke-width="0.5"/>
+      <circle cx="900" cy="400" r="260" stroke="#B8942A" stroke-width="0.5"/>
+    </svg>
+  </div>
 
-            <aside class="hero-precision-card">
-                <div class="hero-precision-header">
-                    <div>
-                        <div class="hero-precision-title">Live Operational Insight</div>
-                        <div class="hero-precision-sub">Custom-built tools for measurable impact.</div>
-                    </div>
-                    <div class="hero-precision-chip">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                </div>
-                <div class="hero-precision-metric">99.8%+</div>
-                <div class="hero-precision-sub">Data accuracy across automated workflows.</div>
-                <div class="hero-precision-tags">
-                    <span>Inbound/Outbound automation</span>
-                    <span>Warehouse label systems</span>
-                    <span>Excel → Python migration</span>
-                    <span>ASRS & WMS integration</span>
-                </div>
-            </aside>
+  <div class="hero-glow"></div>
+
+  <div class="hero-inner" style="position:relative;z-index:1">
+    <div>
+      <div class="hero-eyebrow">Precision Software Engineering</div>
+      <h1>Built for accuracy.<br><em>Engineered</em> for scale.</h1>
+      <p class="hero-desc">
+        Digital Dominium Enterprise crafts precision-driven tools that automate workflows, reduce manual error, and give your team clearer control — from warehouse floor execution to cloud-ready business systems.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-gold"><i class="fas fa-arrow-right" style="font-size:0.78rem"></i> Start a precision build</a>
+        <a href="#services" class="btn-ghost">View capabilities</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">99.8%+</div>
+          <div class="hero-stat-label">Workflow accuracy</div>
         </div>
-    </section>
+        <div class="hero-stat">
+          <div class="hero-stat-num">0</div>
+          <div class="hero-stat-label">Generic templates</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">24/7</div>
+          <div class="hero-stat-label">Operational reliability</div>
+        </div>
+      </div>
+    </div>
 
-    <!-- ABOUT -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-kicker">About the studio</div>
-            <h2 class="section-title">A precision partner for real-world operations.</h2>
+    <div class="hero-card">
+      <div class="hero-card-badge"><span class="badge-dot"></span> Live operational insight</div>
+      <div class="hero-card-metric">99.8%+</div>
+      <div class="hero-card-sub">Data accuracy across automated workflows</div>
+      <div class="tag-cloud">
+        <span class="tag tag-accent">Inbound / outbound automation</span>
+        <span class="tag">Warehouse label systems</span>
+        <span class="tag">Excel → Python migration</span>
+        <span class="tag">ASRS & WMS integration</span>
+        <span class="tag">PDF data extraction</span>
+        <span class="tag">Billing engines</span>
+      </div>
+    </div>
+  </div>
 
-            <div class="about-inner">
-                <div class="about-text">
-                    <h2>From spreadsheets to fully-automated systems.</h2>
-                    <p>
-                        Digital Dominium Enterprise specialises in pragmatic, precision-built software for 
-                        logistics, warehousing, and operational teams. Every solution starts from your actual 
-                        workflow — not from a generic template.
-                    </p>
-                    <p>
-                        Whether it’s extracting data from PDFs, building Excel/VBA automation, or designing 
-                        Python applications and cloud-ready tools, our focus is the same: minimal friction, 
-                        measurable results, and systems your team will actually use.
-                    </p>
-                    <div class="about-highlights">
-                        <div class="about-pill">
-                            <strong>Execution-first</strong>
-                            Built, tested, and hardened inside real operations.
-                        </div>
-                        <div class="about-pill">
-                            <strong>Detail-obsessed</strong>
-                            Precise handling of data, labels, and edge-cases.
-                        </div>
-                        <div class="about-pill">
-                            <strong>Scalable paths</strong>
-                            Local scripts today, cloud-ready architecture tomorrow.
-                        </div>
-                    </div>
-                </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
 
-                <div class="about-card">
-                    <div class="about-card-label">Core philosophy</div>
-                    <div class="about-card-main">
-                        Every line of code is written with one question in mind:  
-                        <em>“Does this make the work on the ground cleaner and more precise?”</em>
-                    </div>
-                    <div class="about-card-sub">
-                        From PDF-to-Excel converters and HU matchers to billing engines and QR-based 
-                        consumable apps, each solution is tuned for speed, clarity, and zero guesswork 
-                        for the end user.
-                    </div>
-                    <div class="about-badges">
-                        <span>Real-world logistics projects</span>
-                        <span>Warehouse & ASRS experience</span>
-                        <span>Python • Excel VBA • Automation</span>
-                        <span>Digital transformation mindset</span>
-                    </div>
-                </div>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-kicker">About the studio</div>
+      <h2 class="section-title">From spreadsheets to<br><em>fully-automated</em> systems.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Digital Dominium Enterprise specialises in pragmatic, precision-built software for logistics, warehousing, and operational teams. Every solution starts from your actual workflow — not from a generic template.</p>
+        <p>Whether it is extracting data from PDFs, building Excel and VBA automation, or designing Python applications and cloud-ready tools, the focus stays the same: minimal friction, measurable results, and systems your team will actually use.</p>
+        <p>We work directly with operations leads and warehouse supervisors to understand what breaks, what slows people down, and what must be bulletproof before a single line of code is written.</p>
+
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-num">01</div>
+            <div class="pillar-title">Execution-first</div>
+            <div class="pillar-desc">Built, tested, and refined inside real operations.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">02</div>
+            <div class="pillar-title">Detail-obsessed</div>
+            <div class="pillar-desc">Precise handling of data, labels, and edge cases.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">03</div>
+            <div class="pillar-title">Scalable paths</div>
+            <div class="pillar-desc">Local scripts today, cloud-ready architecture tomorrow.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">04</div>
+            <div class="pillar-title">Zero guesswork</div>
+            <div class="pillar-desc">Interfaces so clear your team can adopt them immediately.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="philosophy-card reveal">
+        <blockquote>“Every line of code is written with one question in mind: does this make the work on the ground cleaner, faster, and more precise?”</blockquote>
+        <p style="font-size:1rem;color:var(--text-muted);margin-bottom:1.4rem;line-height:1.9">
+          From PDF-to-Excel converters and HU matchers to billing engines and QR-based consumable apps, each solution is tuned for speed, clarity, and reliable execution for the end user.
+        </p>
+        <div class="badge-list">
+          <span class="badge">Real-world logistics projects</span>
+          <span class="badge">Warehouse & ASRS experience</span>
+          <span class="badge">Python</span>
+          <span class="badge">Excel VBA</span>
+          <span class="badge">Process automation</span>
+          <span class="badge">Digital transformation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-bg" id="services" style="padding-top:0;padding-bottom:0">
+  <div class="section-inner" style="padding:4.5rem 0 0">
+    <div class="section-header reveal">
+      <div class="section-kicker">Capabilities</div>
+      <h2 class="section-title">Precision-built for<br><em>your</em> operations.</h2>
+    </div>
+  </div>
+
+  <div class="services-grid reveal" style="margin-top:2.5rem">
+    <div class="svc">
+      <div class="svc-icon"><i class="fas fa-code"></i></div>
+      <div class="svc-kicker">Custom engineering</div>
+      <h3>Python & Desktop Automation</h3>
+      <p>Bespoke Python and desktop tools that automate repetitive tasks such as HU matching, PDF data extraction, label generation, billing engines, and more — designed to run reliably on your existing infrastructure.</p>
+      <div class="svc-footer">Designed for 24/7 operational environments</div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-icon"><i class="fas fa-table"></i></div>
+      <div class="svc-kicker">Excel, refined</div>
+      <h3>Excel & VBA Precision Systems</h3>
+      <p>High-accuracy Excel and VBA solutions for reporting, inbound and outbound control, temperature tracking, and structured data handling — with interfaces your team can understand immediately.</p>
+      <div class="svc-footer">Perfect for teams living in Excel</div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-icon"><i class="fas fa-cloud"></i></div>
+      <div class="svc-kicker">Cloud-aware</div>
+      <h3>Cloud-Ready & API Integrations</h3>
+      <p>Blueprint and build paths from local scripts to cloud-ready services, including API integrations, web dashboards, and structured data flows for long-term scalability and reliability.</p>
+      <div class="svc-footer">Start local, scale when it matters</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="section-inner">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-kicker" style="justify-content:center">How it works</div>
+      <h2 class="section-title">A focused, no-fluff<br><em>engagement model.</em></h2>
+    </div>
+
+    <div style="position:relative">
+      <div class="process-connector"></div>
+      <div class="process-steps reveal">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Workflow audit</h4>
+          <p>We map your current process, pinpoint friction points, and agree on what success should look like.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>Precision scoping</h4>
+          <p>A tight scope document keeps the work clear, aligned, and free from unnecessary surprises.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>Build & test</h4>
+          <p>Iterative development is tested against real operational data and real-world edge cases.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h4>Handover & support</h4>
+          <p>Clean delivery, practical documentation, and support that evolves with your operations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-bg" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-kicker">Proof</div>
+      <h2 class="section-title">Tools built to earn<br>their place on <em>your desktop.</em></h2>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="testi-mark">"</div>
+        <p>"What used to take multiple manual checks now runs with a single click. The precision of the automation eliminated recurring data errors we had accepted for years."</p>
+        <div class="testi-author">
+          <cite>Operations Lead, Inbound Logistics</cite>
+          <span>On custom HU & PO matching tools</span>
+        </div>
+      </div>
+
+      <div class="testi reveal">
+        <div class="testi-mark">"</div>
+        <p>"The Excel and Python tools built for us feel native to our workflow. No fluff — just clear, reliable outcomes every time we run them."</p>
+        <div class="testi-author">
+          <cite>Warehouse Supervisor</cite>
+          <span>On PDF-to-Excel and label automation</span>
+        </div>
+      </div>
+
+      <div class="testi reveal">
+        <div class="testi-mark">"</div>
+        <p>"We finally have a structured, repeatable way to handle our daily tasks. The difference in clarity and control is obvious on the floor."</p>
+        <div class="testi-author">
+          <cite>Logistics Coordinator</cite>
+          <span>On custom operational dashboards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-kicker reveal">Contact</div>
+        <h2 class="section-title reveal">Discuss a precision<br>build for <em>your team.</em></h2>
+        <p class="reveal">Share your current workflow, challenges, or existing spreadsheets — and we’ll explore how a focused, high-precision tool can remove friction and give you better control.</p>
+
+        <div class="contact-details reveal">
+          <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <div class="contact-detail-text">
+              <a href="mailto:digitaldominiumenterprise@gmail.com">digitaldominiumenterprise@gmail.com</a>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- SERVICES -->
-    <section id="services">
-        <div class="services-wrapper">
-            <div class="container">
-                <div class="section-kicker">Capabilities</div>
-                <h2 class="section-title">Precision-built for your operations.</h2>
-
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="service-kicker">Custom engineering</div>
-                        <h3>Python & Desktop Automation</h3>
-                        <p>
-                            Bespoke Python and desktop tools that automate repetitive tasks: HU matching, 
-                            PDF data extraction, label generation, billing engines, and more — designed 
-                            to run reliably on your existing infrastructure.
-                        </p>
-                        <div class="service-meta">
-                            Designed for 24/7 operational environments.
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-table"></i>
-                        </div>
-                        <div class="service-kicker">Excel, refined</div>
-                        <h3>Excel & VBA Precision Systems</h3>
-                        <p>
-                            High-accuracy Excel/VBA solutions for reporting, inbound/outbound control, 
-                            temperature tracking, and structured data handling — with clean interfaces 
-                            your team already understands.
-                        </p>
-                        <div class="service-meta">
-                            Perfect for teams living in Excel.
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <div class="service-kicker">Cloud-aware</div>
-                        <h3>Cloud-Ready & API Integrations</h3>
-                        <p>
-                            Blueprint and build paths from local scripts to cloud-ready services, including 
-                            API integrations, web dashboards, and structured data flows for long-term 
-                            scalability.
-                        </p>
-                        <div class="service-meta">
-                            Start local, scale when it matters.
-                        </div>
-                    </div>
-                </div>
+          <div class="contact-detail">
+            <i class="fab fa-whatsapp"></i>
+            <div class="contact-detail-text">
+              <a href="https://wa.me/601125830761" target="_blank">WhatsApp: +60 11-2583 0761</a>
             </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-detail-text">Malaysia · Remote-first</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-kicker">Proof</div>
-            <h2 class="section-title">Tools built to earn their place on your desktop.</h2>
+      <div class="reveal">
+        <form id="contactForm">
+          <div class="form-row">
+            <input type="text" id="name" placeholder="Your name" required>
+            <input type="email" id="email" placeholder="Work email" required>
+          </div>
+          <input type="text" id="company" placeholder="Company / team" required>
+          <textarea id="message" placeholder="Describe your current process or the problem you're trying to solve." rows="6" required></textarea>
+          <button type="submit" class="btn-gold" style="border:none;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif">
+            Send project inquiry <i class="fas fa-arrow-right" style="font-size:0.78rem"></i>
+          </button>
+        </form>
+        <p class="form-note">Your email app will open with the inquiry pre-filled and ready to send.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>
-                        “What used to take multiple manual checks now runs with a single click. 
-                        The precision of the automation eliminated recurring data errors we had accepted for years.”
-                    </p>
-                    <cite>Operations Lead, Inbound Logistics</cite>
-                    <span class="testimonial-role">On custom HU & PO matching tools</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>
-                        “The Excel and Python tools built for us feel native to our workflow. 
-                        No fluff — just clear, reliable outcomes every time we run them.”
-                    </p>
-                    <cite>Warehouse Supervisor</cite>
-                    <span class="testimonial-role">On PDF-to-Excel and label automation</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>
-                        “We finally have a structured, repeatable way to handle our daily tasks. 
-                        The difference in clarity and control is obvious on the floor.”
-                    </p>
-                    <cite>Logistics Coordinator</cite>
-                    <span class="testimonial-role">On custom operational dashboards</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Digital <em>Dominium</em></div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-inner">
-                <div class="section-kicker">Contact</div>
-                <h2 class="section-title">Discuss a precision build for your team.</h2>
-                <p>
-                    Share your current workflow, challenges, or existing spreadsheets — and we’ll explore 
-                    how a focused, high-precision tool can remove friction and give you better control.
-                </p>
+    <ul class="footer-links">
+      <li><a href="#home">Top</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+    </ul>
 
-                <form id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Work Email" required>
-                    <input type="text" placeholder="Company / Team" required>
-                    <textarea placeholder="Briefly describe your current process or problem." rows="5" required></textarea>
-                    <button type="submit" class="btn btn-secondary">Send project inquiry</button>
-                </form>
-                <div class="contact-note">
-                    You’ll receive a reply with clarifying questions and suggested next steps.
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="socials">
+      <a href="https://www.tiktok.com/@digitaldominium0?_t=ZS-90hZJrUarWD&_r=1" target="_blank" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.linkedin.com/company/107092880" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/@digitaldominiumenterprise" target="_blank" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61577351431267" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/601125830761" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <ul class="footer-links">
-            <li><a href="#home">Back to top</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-        </ul>
-        <div class="social-links">
-            <a href="https://www.tiktok.com/@digitaldominium0?_t=ZS-90hZJrUarWD&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.linkedin.com/company/107092880" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.youtube.com/@digitaldominiumenterprise" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61577351431267" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/601125830761" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <a href="mailto:digitaldominiumenterprise@gmail.com" class="email-link" aria-label="Email Us">
-            digitaldominiumenterprise@gmail.com
-        </a>
-        <p>&copy; 2025 Digital Dominium Enterprise. Precision software for real operations.</p>
-    </footer>
+  <div class="footer-copy">&copy; 2025 Digital Dominium Enterprise — Precision software for real operations.</div>
+</footer>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const nav = document.querySelector('.nav-links');
-            nav.classList.toggle('active');
-        }
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId && targetId !== '#') {
-                    e.preventDefault();
-                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+function closeMenu(){
+  document.getElementById('navLinks').classList.remove('open');
+}
 
-        // Contact Form (Demo)
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for reaching out. Your inquiry has been recorded.');
-            this.reset();
-        });
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id && id !== '#'){
+      e.preventDefault();
+      const el=document.querySelector(id);
+      if(el) el.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
 
-        // Intersection Observer for subtle reveal animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
+// Reveal on scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
 
-        document.querySelectorAll('.service-card, .testimonial-card, .about-card, .about-text').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay=`${(i%4)*0.08}s`;
+  observer.observe(el);
+});
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const company=document.getElementById('company').value.trim();
+  const message=document.getElementById('message').value.trim();
+
+  const subject=encodeURIComponent(`Project Inquiry from ${name}`);
+  const body=encodeURIComponent(
+`Hello Digital Dominium Enterprise,
+
+A new project inquiry has been submitted.
+
+Name: ${name}
+Work Email: ${email}
+Company / Team: ${company}
+
+Project Details:
+${message}`
+  );
+
+  window.location.href=`mailto:digitaldominiumenterprise@gmail.com?subject=${subject}&body=${body}`;
+});
+
+// Keyboard support for hamburger
+document.getElementById('hamburger').addEventListener('keydown', function(e){
+  if(e.key === 'Enter' || e.key === ' '){
+    e.preventDefault();
+    toggleMenu();
+  }
+});
+</script>
 </body>
 </html>
