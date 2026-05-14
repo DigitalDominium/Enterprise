@@ -7,1056 +7,266 @@
 <meta name="description" content="Digital Dominium Enterprise delivers precision-built software, automation, and cloud-first solutions for businesses that demand reliability and performance.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
 :root{
---gold:#B8942A;
---gold-light:#D8B24C;
---gold-soft:#E2C56B;
---gold-dim:rgba(184,148,42,0.18);
---gold-line:rgba(184,148,42,0.42);
---ink:#06060A;
---ink-2:#0E0E14;
---ink-3:#171720;
---ink-4:#20202B;
---text:#F1EBDD;
---text-soft:#D5CFBF;
---text-muted:#B4AD9F;
---text-faint:#8D867A;
---border:rgba(255,255,255,0.08);
---border-strong:rgba(255,255,255,0.12);
+--gold:#B8942A;--gold-light:#D8B24C;--gold-soft:#E2C56B;
+--gold-dim:rgba(184,148,42,0.18);--gold-line:rgba(184,148,42,0.42);
+--ink:#06060A;--ink-2:#0E0E14;--ink-3:#171720;--ink-4:#20202B;
+--text:#F1EBDD;--text-soft:#D5CFBF;--text-muted:#B4AD9F;--text-faint:#8D867A;
+--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);
 --shadow-gold:0 0 28px rgba(184,148,42,0.28);
 }
-
 html{scroll-behavior:smooth}
-
-body{
-font-family:'DM Sans',sans-serif;
-background:var(--ink);
-color:var(--text);
-overflow-x:hidden;
-line-height:1.72;
-font-size:17px;
--webkit-font-smoothing:antialiased;
-text-rendering:optimizeLegibility;
-}
-
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden;line-height:1.72;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-
-body::before{
-content:'';
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:0;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-opacity:0.34;
-}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.34;}
 
 /* HEADER */
-header{
-position:fixed;
-top:0;
-left:0;
-right:0;
-z-index:900;
-padding:0 2rem;
-border-bottom:1px solid var(--border);
-background:rgba(6,6,10,0.9);
-backdrop-filter:blur(20px);
-}
-
-.nav{
-display:flex;
-align-items:center;
-justify-content:space-between;
-height:72px;
-max-width:1320px;
-margin:0 auto;
-gap:1rem;
-}
-
-.logo{
-font-family:'Cormorant Garamond',serif;
-font-size:1.7rem;
-font-weight:600;
-letter-spacing:0.04em;
-color:var(--text);
-}
-
+header{position:fixed;top:0;left:0;right:0;z-index:900;padding:0 2rem;border-bottom:1px solid var(--border);background:rgba(6,6,10,0.9);backdrop-filter:blur(20px);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1320px;margin:0 auto;gap:1rem;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;letter-spacing:0.04em;color:var(--text);}
 .logo em{font-style:normal;color:var(--gold)}
-
-.nav-links{
-display:flex;
-gap:2rem;
-list-style:none;
-align-items:center;
-}
-
-.nav-links a{
-font-size:0.9rem;
-letter-spacing:0.12em;
-text-transform:uppercase;
-color:var(--text-muted);
-transition:color 0.22s ease, opacity 0.22s ease;
-}
-
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:0.9rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);transition:color 0.22s ease;}
 .nav-links a:hover{color:var(--gold-light)}
-
-.nav-book{
-padding:10px 20px;
-border-radius:3px;
-border:1px solid var(--gold-line);
-color:var(--gold-light);
-font-size:0.84rem;
-letter-spacing:0.12em;
-text-transform:uppercase;
-transition:all 0.25s ease;
-}
-
-.nav-book:hover{
-background:var(--gold);
-color:var(--ink);
-border-color:var(--gold);
-box-shadow:var(--shadow-gold);
-}
-
-.hamburger{
-display:none;
-flex-direction:column;
-gap:5px;
-cursor:pointer;
-}
-
-.hamburger span{
-display:block;
-width:24px;
-height:1px;
-background:var(--text-muted);
-}
-
+.nav-book{padding:10px 20px;border-radius:3px;border:1px solid var(--gold-line);color:var(--gold-light);font-size:0.84rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.25s ease;}
+.nav-book:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);box-shadow:var(--shadow-gold);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:24px;height:1px;background:var(--text-muted);}
 @media(max-width:820px){
-header{padding:0 1.15rem}
-.nav{height:68px}
-.nav-links{
-display:none;
-position:fixed;
-inset:68px 0 0 0;
-background:rgba(6,6,10,0.98);
-flex-direction:column;
-justify-content:center;
-align-items:center;
-gap:2rem;
-padding:2rem;
-}
-.nav-links.open{display:flex}
-.hamburger{display:flex}
+  header{padding:0 1.15rem}.nav{height:68px}
+  .nav-links{display:none;position:fixed;inset:68px 0 0 0;background:rgba(6,6,10,0.98);flex-direction:column;justify-content:center;align-items:center;gap:2rem;padding:2rem;}
+  .nav-links.open{display:flex}.hamburger{display:flex}
 }
 
 /* HERO */
-.hero{
-position:relative;
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:124px 2rem 88px;
-overflow:hidden;
-}
-
-.hero-bg-lines{
-position:absolute;
-inset:0;
-pointer-events:none;
-overflow:hidden;
-}
-
-.hero-bg-lines svg{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-opacity:0.12;
-}
-
-.hero-glow{
-position:absolute;
-top:-120px;
-right:-80px;
-width:600px;
-height:600px;
-border-radius:50%;
-background:radial-gradient(circle,rgba(184,148,42,0.22) 0%,transparent 70%);
-pointer-events:none;
-}
-
-.hero-inner{
-max-width:1320px;
-margin:0 auto;
-width:100%;
-display:grid;
-grid-template-columns:minmax(0,1fr) 400px;
-gap:4.5rem;
-align-items:center;
-}
-
-@media(max-width:960px){
-.hero-inner{grid-template-columns:1fr}
-}
-
-.hero-eyebrow{
-display:inline-flex;
-align-items:center;
-gap:10px;
-font-size:0.78rem;
-letter-spacing:0.18em;
-text-transform:uppercase;
-color:var(--gold-soft);
-margin-bottom:1.5rem;
-}
-
-.hero-eyebrow::before{
-content:'';
-display:block;
-width:30px;
-height:1px;
-background:var(--gold);
-}
-
-.hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(3.2rem,6vw,5.4rem);
-font-weight:600;
-line-height:1.02;
-color:#F6F1E4;
-letter-spacing:0.01em;
-margin-bottom:1.35rem;
-max-width:11ch;
-}
-
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:124px 2rem 88px;overflow:hidden;}
+.hero-bg-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.hero-bg-lines svg{position:absolute;inset:0;width:100%;height:100%;opacity:0.12;}
+.hero-glow{position:absolute;top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(184,148,42,0.22) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:4.5rem;align-items:center;}
+@media(max-width:960px){.hero-inner{grid-template-columns:1fr}}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:1.5rem;}
+.hero-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,6vw,5.4rem);font-weight:600;line-height:1.02;color:#F6F1E4;letter-spacing:0.01em;margin-bottom:1.35rem;max-width:11ch;}
 .hero h1 em{font-style:italic;color:var(--gold-light)}
-
-.hero-desc{
-font-size:1.1rem;
-color:var(--text-soft);
-max-width:650px;
-line-height:1.9;
-margin-bottom:2.4rem;
-font-weight:400;
-}
-
-.hero-actions{
-display:flex;
-flex-wrap:wrap;
-gap:1rem;
-margin-bottom:3rem;
-}
-
-.btn-gold,
-.btn-ghost{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-min-height:50px;
-padding:14px 28px;
-border-radius:3px;
-font-size:0.88rem;
-letter-spacing:0.11em;
-text-transform:uppercase;
-font-weight:600;
-transition:all 0.25s ease;
-}
-
-.btn-gold{
-background:var(--gold);
-color:var(--ink);
-border:1px solid var(--gold);
-}
-
-.btn-gold:hover{
-background:var(--gold-light);
-box-shadow:var(--shadow-gold);
-}
-
-.btn-ghost{
-border:1px solid var(--border-strong);
-color:var(--text-soft);
-background:transparent;
-}
-
-.btn-ghost:hover{
-border-color:var(--gold-line);
-color:var(--gold-light);
-background:rgba(255,255,255,0.02);
-}
-
-.hero-stats{
-display:flex;
-gap:2rem;
-flex-wrap:wrap;
-}
-
-.hero-stat{
-border-left:1px solid var(--gold-line);
-padding-left:1.15rem;
-}
-
-.hero-stat-num{
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-font-weight:600;
-color:#F4EFDF;
-line-height:1;
-margin-bottom:6px;
-}
-
-.hero-stat-label{
-font-size:0.8rem;
-letter-spacing:0.12em;
-text-transform:uppercase;
-color:var(--text-faint);
-}
-
-/* HERO CARD */
-.hero-card{
-background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
-border:1px solid var(--border);
-border-radius:6px;
-padding:2.2rem;
-position:relative;
-overflow:hidden;
-box-shadow:0 18px 36px rgba(0,0,0,0.22);
-}
-
-.hero-card::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-right:0;
-height:1px;
-background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-
-.hero-card-badge{
-display:inline-flex;
-align-items:center;
-gap:8px;
-font-size:0.74rem;
-letter-spacing:0.16em;
-text-transform:uppercase;
-color:var(--gold-soft);
-margin-bottom:1.2rem;
-}
-
-.badge-dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:var(--gold);
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%,100%{opacity:1}
-50%{opacity:0.4}
-}
-
-.hero-card-metric{
-font-family:'Cormorant Garamond',serif;
-font-size:3.4rem;
-font-weight:700;
-color:#F5F0E2;
-line-height:1;
-margin-bottom:0.35rem;
-}
-
-.hero-card-sub{
-font-size:0.96rem;
-color:var(--text-muted);
-line-height:1.75;
-margin-bottom:1.4rem;
-}
-
-.tag-cloud{
-display:flex;
-flex-wrap:wrap;
-gap:0.6rem;
-}
-
-.tag{
-padding:8px 12px;
-border-radius:3px;
-border:1px solid var(--border);
-background:var(--ink-4);
-font-size:0.8rem;
-color:var(--text-soft);
-letter-spacing:0.03em;
-line-height:1.4;
-}
-
-.tag-accent{
-border-color:var(--gold-line);
-color:var(--gold-light);
-}
-
-.divider{
-max-width:1320px;
-margin:0 auto;
-height:1px;
-background:var(--border);
-}
+.hero-desc{font-size:1.1rem;color:var(--text-soft);max-width:650px;line-height:1.9;margin-bottom:2.4rem;font-weight:400;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;}
+.btn-gold,.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:14px 28px;border-radius:3px;font-size:0.88rem;letter-spacing:0.11em;text-transform:uppercase;font-weight:600;transition:all 0.25s ease;}
+.btn-gold{background:var(--gold);color:var(--ink);border:1px solid var(--gold);}
+.btn-gold:hover{background:var(--gold-light);box-shadow:var(--shadow-gold);}
+.btn-ghost{border:1px solid var(--border-strong);color:var(--text-soft);background:transparent;}
+.btn-ghost:hover{border-color:var(--gold-line);color:var(--gold-light);background:rgba(255,255,255,0.02);}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;}
+.hero-stat{border-left:1px solid var(--gold-line);padding-left:1.15rem;}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#F4EFDF;line-height:1;margin-bottom:6px;}
+.hero-stat-label{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-faint);}
+.hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.025),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:6px;padding:2.2rem;position:relative;overflow:hidden;box-shadow:0 18px 36px rgba(0,0,0,0.22);}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hero-card-badge{display:inline-flex;align-items:center;gap:8px;font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:1.2rem;}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-card-metric{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:700;color:#F5F0E2;line-height:1;margin-bottom:0.35rem;}
+.hero-card-sub{font-size:0.96rem;color:var(--text-muted);line-height:1.75;margin-bottom:1.4rem;}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:0.6rem;}
+.tag{padding:8px 12px;border-radius:3px;border:1px solid var(--border);background:var(--ink-4);font-size:0.8rem;color:var(--text-soft);letter-spacing:0.03em;line-height:1.4;}
+.tag-accent{border-color:var(--gold-line);color:var(--gold-light);}
+.scroll-hint{position:absolute;bottom:2.3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);}
+.scroll-line{width:1px;height:40px;background:linear-gradient(180deg,var(--gold-line),transparent);animation:scrollAnim 1.8s ease infinite;}
+@keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* SECTIONS */
-.section{
-padding:6.5rem 2rem;
-position:relative;
-}
-
-.section-inner{
-max-width:1320px;
-margin:0 auto;
-}
-
+.section{padding:6.5rem 2rem;position:relative;}
+.section-inner{max-width:1320px;margin:0 auto;}
 .section-header{margin-bottom:4rem}
-
-.section-kicker{
-display:inline-flex;
-align-items:center;
-gap:10px;
-font-size:0.78rem;
-letter-spacing:0.18em;
-text-transform:uppercase;
-color:var(--gold-soft);
-margin-bottom:1rem;
-}
-
-.section-kicker::before{
-content:'';
-display:block;
-width:22px;
-height:1px;
-background:var(--gold);
-}
-
-.section-title{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(2.3rem,4vw,3.5rem);
-font-weight:600;
-color:#F4EFDF;
-line-height:1.08;
-letter-spacing:0.01em;
-}
-
+.section-kicker{display:inline-flex;align-items:center;gap:10px;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:1rem;}
+.section-kicker::before{content:'';display:block;width:22px;height:1px;background:var(--gold);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,4vw,3.5rem);font-weight:600;color:#F4EFDF;line-height:1.08;letter-spacing:0.01em;}
 .section-title em{font-style:italic;color:var(--gold-light)}
 
 /* ABOUT */
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:4rem;
-align-items:start;
-}
-
-@media(max-width:860px){
-.about-grid{grid-template-columns:1fr}
-}
-
-.about-text p,
-.about-grid > div:first-child p{
-font-size:1.05rem;
-color:var(--text-soft);
-line-height:1.95;
-font-weight:400;
-margin-bottom:1.25rem;
-max-width:65ch;
-}
-
-.about-pillars{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:1px;
-margin-top:2.3rem;
-border:1px solid var(--border);
-background:var(--border);
-}
-
-.pillar{
-padding:1.5rem 1.3rem;
-background:var(--ink-2);
-}
-
-@media(max-width:480px){
-.about-pillars{grid-template-columns:1fr}
-}
-
-.pillar-num{
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-font-weight:700;
-color:var(--gold);
-opacity:0.7;
-margin-bottom:0.45rem;
-}
-
-.pillar-title{
-font-size:0.88rem;
-letter-spacing:0.09em;
-text-transform:uppercase;
-color:var(--text);
-margin-bottom:0.45rem;
-}
-
-.pillar-desc{
-font-size:0.95rem;
-color:var(--text-muted);
-line-height:1.7;
-}
-
-.philosophy-card{
-background:var(--ink-3);
-border:1px solid var(--border);
-border-radius:6px;
-padding:2.1rem;
-position:relative;
-overflow:hidden;
-}
-
-.philosophy-card::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-bottom:0;
-width:2px;
-background:linear-gradient(180deg,var(--gold),transparent);
-}
-
-.philosophy-card blockquote{
-font-family:'Cormorant Garamond',serif;
-font-size:1.55rem;
-font-style:italic;
-color:#F4EFDF;
-line-height:1.55;
-margin-bottom:1.2rem;
-padding-left:1.2rem;
-}
-
-.badge-list{
-display:flex;
-flex-wrap:wrap;
-gap:0.55rem;
-}
-
-.badge{
-padding:7px 11px;
-border:1px solid var(--border);
-border-radius:3px;
-font-size:0.8rem;
-color:var(--text-muted);
-letter-spacing:0.03em;
-background:rgba(255,255,255,0.01);
-}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+.about-text p,.about-grid>div:first-child p{font-size:1.05rem;color:var(--text-soft);line-height:1.95;font-weight:400;margin-bottom:1.25rem;max-width:65ch;}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:2.3rem;border:1px solid var(--border);background:var(--border);}
+.pillar{padding:1.5rem 1.3rem;background:var(--ink-2);}
+@media(max-width:480px){.about-pillars{grid-template-columns:1fr}}
+.pillar-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold);opacity:0.7;margin-bottom:0.45rem;}
+.pillar-title{font-size:0.88rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--text);margin-bottom:0.45rem;}
+.pillar-desc{font-size:0.95rem;color:var(--text-muted);line-height:1.7;}
+.philosophy-card{background:var(--ink-3);border:1px solid var(--border);border-radius:6px;padding:2.1rem;position:relative;overflow:hidden;}
+.philosophy-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),transparent);}
+.philosophy-card blockquote{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-style:italic;color:#F4EFDF;line-height:1.55;margin-bottom:1.2rem;padding-left:1.2rem;}
+.badge-list{display:flex;flex-wrap:wrap;gap:0.55rem;}
+.badge{padding:7px 11px;border:1px solid var(--border);border-radius:3px;font-size:0.8rem;color:var(--text-muted);letter-spacing:0.03em;background:rgba(255,255,255,0.01);}
 
 /* SERVICES */
 .services-bg{background:var(--ink-2)}
-
-.services-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:1px;
-background:var(--border);
-}
-
-@media(max-width:760px){
-.services-grid{grid-template-columns:1fr}
-}
-
-.svc{
-background:var(--ink-2);
-padding:2.6rem 2rem;
-transition:background 0.3s ease, transform 0.3s ease;
-cursor:default;
-position:relative;
-overflow:hidden;
-}
-
-.svc::after{
-content:'';
-position:absolute;
-bottom:0;
-left:0;
-right:0;
-height:1px;
-background:linear-gradient(90deg,transparent,var(--gold),transparent);
-opacity:0;
-transition:opacity 0.3s ease;
-}
-
-.svc:hover{
-background:var(--ink-3);
-transform:translateY(-2px);
-}
-
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+@media(max-width:760px){.services-grid{grid-template-columns:1fr}}
+.svc{background:var(--ink-2);padding:2.6rem 2rem;transition:background 0.3s ease,transform 0.3s ease;cursor:default;position:relative;overflow:hidden;}
+.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.3s ease;}
+.svc:hover{background:var(--ink-3);transform:translateY(-2px);}
 .svc:hover::after{opacity:1}
-
-.svc-icon{
-width:48px;
-height:48px;
-border:1px solid var(--gold-line);
-border-radius:4px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:var(--gold);
-font-size:1.12rem;
-margin-bottom:1.5rem;
-}
-
-.svc-kicker{
-font-size:0.76rem;
-letter-spacing:0.17em;
-text-transform:uppercase;
-color:var(--gold-soft);
-margin-bottom:0.7rem;
-}
-
-.svc h3{
-font-family:'Cormorant Garamond',serif;
-font-size:1.75rem;
-font-weight:600;
-color:#F4EFDF;
-margin-bottom:0.95rem;
-line-height:1.2;
-}
-
-.svc p{
-font-size:1rem;
-color:var(--text-soft);
-line-height:1.9;
-font-weight:400;
-margin-bottom:1.4rem;
-}
-
-.svc-footer{
-font-size:0.8rem;
-letter-spacing:0.1em;
-text-transform:uppercase;
-color:var(--text-faint);
-display:flex;
-align-items:center;
-gap:8px;
-}
-
-.svc-footer::before{
-content:'';
-width:16px;
-height:1px;
-background:var(--text-faint);
-}
+.svc-icon{width:48px;height:48px;border:1px solid var(--gold-line);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.12rem;margin-bottom:1.5rem;}
+.svc-kicker{font-size:0.76rem;letter-spacing:0.17em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:0.7rem;}
+.svc h3{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:#F4EFDF;margin-bottom:0.95rem;line-height:1.2;}
+.svc p{font-size:1rem;color:var(--text-soft);line-height:1.9;font-weight:400;margin-bottom:1.4rem;}
+.svc-footer{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:8px;}
+.svc-footer::before{content:'';width:16px;height:1px;background:var(--text-faint);}
 
 /* PROCESS */
-.process-steps{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:0;
-position:relative;
-}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+@media(max-width:720px){.process-steps{grid-template-columns:1fr 1fr}.process-connector{display:none}}
+@media(max-width:400px){.process-steps{grid-template-columns:1fr}}
+.process-connector{position:absolute;top:28px;left:calc(12.5%);right:calc(12.5%);height:1px;background:var(--border);z-index:0;}
+.step{position:relative;z-index:1;padding:0 1.35rem 2rem;text-align:center;}
+.step-num{width:58px;height:58px;border-radius:50%;border:1px solid var(--gold-line);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--gold);background:var(--ink);margin:0 auto 1rem;}
+.step h4{font-size:0.95rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--text);margin-bottom:0.55rem;}
+.step p{font-size:0.98rem;color:var(--text-muted);line-height:1.8;}
 
-@media(max-width:720px){
-.process-steps{grid-template-columns:1fr 1fr}
-.process-connector{display:none}
+/* ===== PROJECTS CAROUSEL ===== */
+/* Full-bleed outer clips the track and fades edges */
+.carousel-outer{
+  position:relative;
+  overflow:hidden;
+  mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 95%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 95%,transparent 100%);
 }
+/* Draggable flex track */
+.carousel-track{
+  display:flex;
+  gap:1px;
+  background:var(--border);
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+  will-change:transform;
+}
+.carousel-track.is-snapping{
+  transition:transform 0.46s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.carousel-track.grabbing{cursor:grabbing;}
 
-@media(max-width:400px){
-.process-steps{grid-template-columns:1fr}
+/* Cards */
+.project-card{
+  flex:0 0 360px;
+  width:360px;
+  background:var(--ink-2);
+  padding:2rem 1.75rem;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-height:450px;
+  transition:background 0.28s ease;
 }
+@media(max-width:600px){
+  .project-card{flex:0 0 calc(100vw - 3rem);width:calc(100vw - 3rem)}
+}
+.project-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity 0.3s ease;
+}
+.project-card:hover{background:var(--ink-3);}
+.project-card:hover::before{opacity:1}
+.project-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.1rem;gap:1rem;}
+.project-icon{width:42px;height:42px;border:1px solid var(--gold-line);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;flex-shrink:0;}
+.project-index{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:rgba(184,148,42,0.2);line-height:1;}
+.project-date{font-size:0.78rem;color:var(--text-faint);letter-spacing:0.08em;margin-bottom:0.6rem;}
+.project-category{font-size:0.72rem;letter-spacing:0.17em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:0.55rem;}
+.project-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:#F4EFDF;line-height:1.22;margin-bottom:0.85rem;}
+.project-desc{font-size:0.95rem;color:var(--text-muted);line-height:1.82;flex:1;margin-bottom:1.4rem;}
+.project-skills{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:auto;}
+.skill-pill{padding:5px 9px;border-radius:2px;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-size:0.74rem;color:var(--text-faint);letter-spacing:0.04em;}
+.skill-pill-accent{border-color:var(--gold-dim);color:var(--gold-soft);background:rgba(184,148,42,0.06);}
 
-.process-connector{
-position:absolute;
-top:28px;
-left:calc(12.5%);
-right:calc(12.5%);
-height:1px;
-background:var(--border);
-z-index:0;
+/* Controls */
+.carousel-controls{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:2rem;flex-wrap:wrap;gap:1rem;
 }
-
-.step{
-position:relative;
-z-index:1;
-padding:0 1.35rem 2rem;
-text-align:center;
+.carousel-arrows{display:flex;gap:0.6rem;}
+.carousel-btn{
+  width:46px;height:46px;border-radius:3px;border:1px solid var(--border-strong);
+  background:transparent;color:var(--text-muted);font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all 0.22s ease;font-family:inherit;
 }
-
-.step-num{
-width:58px;
-height:58px;
-border-radius:50%;
-border:1px solid var(--gold-line);
-display:flex;
-align-items:center;
-justify-content:center;
-font-family:'Cormorant Garamond',serif;
-font-size:1.35rem;
-font-weight:600;
-color:var(--gold);
-background:var(--ink);
-margin:0 auto 1rem;
-}
-
-.step h4{
-font-size:0.95rem;
-letter-spacing:0.07em;
-text-transform:uppercase;
-color:var(--text);
-margin-bottom:0.55rem;
-}
-
-.step p{
-font-size:0.98rem;
-color:var(--text-muted);
-line-height:1.8;
-}
+.carousel-btn:hover:not(:disabled){border-color:var(--gold-line);color:var(--gold);background:rgba(184,148,42,0.06);}
+.carousel-btn:disabled{opacity:0.22;cursor:default;}
+.carousel-progress-wrap{flex:1;min-width:100px;max-width:300px;height:2px;background:var(--border-strong);border-radius:2px;overflow:hidden;}
+.carousel-progress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-soft));border-radius:2px;transition:width 0.4s cubic-bezier(0.25,0.46,0.45,0.94);width:6.25%;}
+.carousel-counter{font-size:0.82rem;letter-spacing:0.1em;color:var(--text-faint);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.carousel-counter em{font-style:normal;color:var(--gold-soft);}
 
 /* TESTIMONIALS */
 .testimonials-bg{background:var(--ink)}
-
-.testi-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:1.4rem;
-}
-
-@media(max-width:760px){
-.testi-grid{grid-template-columns:1fr}
-}
-
-.testi{
-background:var(--ink-2);
-border:1px solid var(--border);
-border-radius:6px;
-padding:2rem;
-position:relative;
-overflow:hidden;
-transition:border-color 0.3s ease, transform 0.3s ease;
-}
-
-.testi:hover{
-border-color:var(--gold-line);
-transform:translateY(-2px);
-}
-
-.testi-mark{
-position:absolute;
-top:1rem;
-right:1.4rem;
-font-family:'Cormorant Garamond',serif;
-font-size:4rem;
-line-height:1;
-color:var(--gold);
-opacity:0.12;
-}
-
-.testi p{
-font-family:'Cormorant Garamond',serif;
-font-size:1.2rem;
-font-style:italic;
-color:#E6DECD;
-line-height:1.75;
-margin-bottom:1.25rem;
-padding-right:1rem;
-}
-
-.testi-author cite{
-font-weight:700;
-font-size:0.94rem;
-color:#F4EFDF;
-font-style:normal;
-}
-
-.testi-author span{
-display:block;
-font-size:0.84rem;
-color:var(--text-faint);
-margin-top:4px;
-line-height:1.6;
-}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+@media(max-width:760px){.testi-grid{grid-template-columns:1fr}}
+.testi{background:var(--ink-2);border:1px solid var(--border);border-radius:6px;padding:2rem;position:relative;overflow:hidden;transition:border-color 0.3s ease,transform 0.3s ease;}
+.testi:hover{border-color:var(--gold-line);transform:translateY(-2px);}
+.testi-mark{position:absolute;top:1rem;right:1.4rem;font-family:'Cormorant Garamond',serif;font-size:4rem;line-height:1;color:var(--gold);opacity:0.12;}
+.testi p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:#E6DECD;line-height:1.75;margin-bottom:1.25rem;padding-right:1rem;}
+.testi-author cite{font-weight:700;font-size:0.94rem;color:#F4EFDF;font-style:normal;}
+.testi-author span{display:block;font-size:0.84rem;color:var(--text-faint);margin-top:4px;line-height:1.6;}
 
 /* CONTACT */
-.contact-bg{
-background:var(--ink-2);
-background-image:radial-gradient(ellipse at top,rgba(184,148,42,0.08) 0%,transparent 60%);
-}
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:4rem;
-align-items:start;
-}
-
-@media(max-width:860px){
-.contact-grid{grid-template-columns:1fr}
-}
-
-.contact-left p{
-font-size:1.04rem;
-color:var(--text-soft);
-line-height:1.9;
-font-weight:400;
-margin:1.4rem 0 2.2rem;
-max-width:60ch;
-}
-
-.contact-details{
-display:flex;
-flex-direction:column;
-gap:1rem;
-}
-
-.contact-detail{
-display:flex;
-align-items:center;
-gap:1rem;
-padding:1rem 1.15rem;
-background:var(--ink-3);
-border:1px solid var(--border);
-border-radius:4px;
-}
-
-.contact-detail i{
-color:var(--gold);
-font-size:1rem;
-width:18px;
-text-align:center;
-}
-
-.contact-detail-text{
-font-size:0.98rem;
-color:var(--text-soft);
-line-height:1.7;
-}
-
-.contact-detail-text a{
-color:var(--text-soft);
-transition:color 0.2s ease;
-}
-
+.contact-bg{background:var(--ink-2);background-image:radial-gradient(ellipse at top,rgba(184,148,42,0.08) 0%,transparent 60%);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.contact-left p{font-size:1.04rem;color:var(--text-soft);line-height:1.9;font-weight:400;margin:1.4rem 0 2.2rem;max-width:60ch;}
+.contact-details{display:flex;flex-direction:column;gap:1rem;}
+.contact-detail{display:flex;align-items:center;gap:1rem;padding:1rem 1.15rem;background:var(--ink-3);border:1px solid var(--border);border-radius:4px;}
+.contact-detail i{color:var(--gold);font-size:1rem;width:18px;text-align:center;}
+.contact-detail-text{font-size:0.98rem;color:var(--text-soft);line-height:1.7;}
+.contact-detail-text a{color:var(--text-soft);transition:color 0.2s ease;}
 .contact-detail-text a:hover{color:var(--gold-light)}
-
-form{
-display:flex;
-flex-direction:column;
-gap:1rem;
-}
-
-.form-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:1rem;
-}
-
-@media(max-width:480px){
-.form-row{grid-template-columns:1fr}
-}
-
-input,textarea,select{
-width:100%;
-padding:14px 16px;
-background:var(--ink-3);
-border:1px solid var(--border-strong);
-border-radius:4px;
-color:var(--text);
-font-family:'DM Sans',sans-serif;
-font-size:0.98rem;
-line-height:1.6;
-outline:none;
-transition:border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-input::placeholder,
-textarea::placeholder{color:var(--text-faint)}
-
-input:focus,
-textarea:focus,
-select:focus{
-border-color:var(--gold-line);
-box-shadow:0 0 0 3px rgba(184,148,42,0.12);
-background:#1a1a24;
-}
-
-textarea{
-resize:vertical;
-min-height:152px;
-}
-
-.form-note{
-font-size:0.84rem;
-color:var(--text-faint);
-margin-top:0.8rem;
-text-align:center;
-line-height:1.7;
-}
+form{display:flex;flex-direction:column;gap:1rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+input,textarea,select{width:100%;padding:14px 16px;background:var(--ink-3);border:1px solid var(--border-strong);border-radius:4px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.98rem;line-height:1.6;outline:none;transition:border-color 0.2s ease,box-shadow 0.2s ease,background 0.2s ease;}
+input::placeholder,textarea::placeholder{color:var(--text-faint)}
+input:focus,textarea:focus,select:focus{border-color:var(--gold-line);box-shadow:0 0 0 3px rgba(184,148,42,0.12);background:#1a1a24;}
+textarea{resize:vertical;min-height:152px}
+.form-note{font-size:0.84rem;color:var(--text-faint);margin-top:0.8rem;text-align:center;line-height:1.7;}
 
 /* FOOTER */
-footer{
-background:var(--ink);
-border-top:1px solid var(--border);
-padding:3rem 2rem;
-}
-
-.footer-inner{
-max-width:1320px;
-margin:0 auto;
-display:grid;
-grid-template-columns:1fr auto 1fr;
-align-items:center;
-gap:2rem;
-}
-
-@media(max-width:700px){
-.footer-inner{
-grid-template-columns:1fr;
-text-align:center;
-}
-}
-
-.footer-logo{
-font-family:'Cormorant Garamond',serif;
-font-size:1.35rem;
-font-weight:600;
-color:var(--text);
-}
-
+footer{background:var(--ink);border-top:1px solid var(--border);padding:3rem 2rem;}
+.footer-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;text-align:center;}}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--text);}
 .footer-logo em{font-style:normal;color:var(--gold)}
-
-.footer-links{
-display:flex;
-gap:1.5rem;
-list-style:none;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.footer-links a{
-font-size:0.86rem;
-letter-spacing:0.08em;
-text-transform:uppercase;
-color:var(--text-faint);
-transition:color 0.2s ease;
-}
-
+.footer-links{display:flex;gap:1.5rem;list-style:none;justify-content:center;flex-wrap:wrap;}
+.footer-links a{font-size:0.86rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-faint);transition:color 0.2s ease;}
 .footer-links a:hover{color:var(--gold-light)}
-
-.socials{
-display:flex;
-gap:0.7rem;
-justify-content:flex-end;
-flex-wrap:wrap;
-}
-
-@media(max-width:700px){
-.socials{justify-content:center}
-}
-
-.social-btn{
-width:40px;
-height:40px;
-border-radius:4px;
-border:1px solid var(--border);
-display:flex;
-align-items:center;
-justify-content:center;
-color:var(--text-faint);
-font-size:0.95rem;
-transition:all 0.25s ease;
-}
-
-.social-btn:hover{
-border-color:var(--gold-line);
-color:var(--gold);
-background:rgba(255,255,255,0.02);
-}
-
-.footer-copy{
-max-width:1320px;
-margin:2rem auto 0;
-padding-top:2rem;
-border-top:1px solid var(--border);
-text-align:center;
-font-size:0.84rem;
-color:var(--text-faint);
-letter-spacing:0.04em;
-line-height:1.7;
-}
+.socials{display:flex;gap:0.7rem;justify-content:flex-end;flex-wrap:wrap;}
+@media(max-width:700px){.socials{justify-content:center}}
+.social-btn{width:40px;height:40px;border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:0.95rem;transition:all 0.25s ease;}
+.social-btn:hover{border-color:var(--gold-line);color:var(--gold);background:rgba(255,255,255,0.02);}
+.footer-copy{max-width:1320px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid var(--border);text-align:center;font-size:0.84rem;color:var(--text-faint);letter-spacing:0.04em;line-height:1.7;}
 
 /* ANIMATIONS */
-.reveal{
-opacity:0;
-transform:translateY(24px);
-transition:opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.visible{
-opacity:1;
-transform:none;
-}
-
-/* SCROLL INDICATOR */
-.scroll-hint{
-position:absolute;
-bottom:2.3rem;
-left:50%;
-transform:translateX(-50%);
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:8px;
-font-size:0.72rem;
-letter-spacing:0.18em;
-text-transform:uppercase;
-color:var(--text-faint);
-}
-
-.scroll-line{
-width:1px;
-height:40px;
-background:linear-gradient(180deg,var(--gold-line),transparent);
-animation:scrollAnim 1.8s ease infinite;
-}
-
-@keyframes scrollAnim{
-0%{transform:scaleY(0);transform-origin:top}
-50%{transform:scaleY(1);transform-origin:top}
-51%{transform:scaleY(1);transform-origin:bottom}
-100%{transform:scaleY(0);transform-origin:bottom}
-}
-
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
 @media(max-width:640px){
-body{font-size:16px}
-.hero{padding:116px 1.15rem 82px}
-.section{padding:5.3rem 1.15rem}
-.hero h1{max-width:none}
-.hero-desc{font-size:1.02rem}
-.hero-stats{gap:1.2rem}
-.hero-card{padding:1.6rem}
-.scroll-hint{display:none}
+  body{font-size:16px}.hero{padding:116px 1.15rem 82px}.section{padding:5.3rem 1.15rem}
+  .hero h1{max-width:none}.hero-desc{font-size:1.02rem}.hero-stats{gap:1.2rem}
+  .hero-card{padding:1.6rem}.scroll-hint{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <nav class="nav">
     <div class="logo">Digital <em>Dominium</em></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about" onclick="closeMenu()">Studio</a></li>
       <li><a href="#services" onclick="closeMenu()">Capabilities</a></li>
+      <li><a href="#work" onclick="closeMenu()">Work</a></li>
       <li><a href="#process" onclick="closeMenu()">Process</a></li>
       <li><a href="#testimonials" onclick="closeMenu()">Proof</a></li>
       <li><a href="#contact" class="nav-book" onclick="closeMenu()">Book a consultation</a></li>
@@ -1082,38 +292,22 @@ body{font-size:16px}
       <circle cx="900" cy="400" r="260" stroke="#B8942A" stroke-width="0.5"/>
     </svg>
   </div>
-
   <div class="hero-glow"></div>
-
   <div class="hero-inner" style="position:relative;z-index:1">
     <div>
       <div class="hero-eyebrow">Precision Software Engineering</div>
       <h1>Built for accuracy.<br><em>Engineered</em> for scale.</h1>
-      <p class="hero-desc">
-        Digital Dominium Enterprise crafts precision-driven tools that automate workflows, reduce manual error, and give your team clearer control — from warehouse floor execution to cloud-ready business systems.
-      </p>
-
+      <p class="hero-desc">Digital Dominium Enterprise crafts precision-driven tools that automate workflows, reduce manual error, and give your team clearer control — from warehouse floor execution to cloud-ready business systems.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-gold"><i class="fas fa-arrow-right" style="font-size:0.78rem"></i> Start a precision build</a>
-        <a href="#services" class="btn-ghost">View capabilities</a>
+        <a href="#work" class="btn-ghost">View our work</a>
       </div>
-
       <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num">99.8%+</div>
-          <div class="hero-stat-label">Workflow accuracy</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">0</div>
-          <div class="hero-stat-label">Generic templates</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">24/7</div>
-          <div class="hero-stat-label">Operational reliability</div>
-        </div>
+        <div class="hero-stat"><div class="hero-stat-num">16+</div><div class="hero-stat-label">Delivered projects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">99.8%+</div><div class="hero-stat-label">Workflow accuracy</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">24/7</div><div class="hero-stat-label">Operational reliability</div></div>
       </div>
     </div>
-
     <div class="hero-card">
       <div class="hero-card-badge"><span class="badge-dot"></span> Live operational insight</div>
       <div class="hero-card-metric">99.8%+</div>
@@ -1128,11 +322,7 @@ body{font-size:16px}
       </div>
     </div>
   </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    Scroll
-  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
 </section>
 
 <!-- ABOUT -->
@@ -1142,49 +332,26 @@ body{font-size:16px}
       <div class="section-kicker">About the studio</div>
       <h2 class="section-title">From spreadsheets to<br><em>fully-automated</em> systems.</h2>
     </div>
-
     <div class="about-grid">
       <div class="about-text reveal">
         <p>Digital Dominium Enterprise specialises in pragmatic, precision-built software for logistics, warehousing, and operational teams. Every solution starts from your actual workflow — not from a generic template.</p>
         <p>Whether it is extracting data from PDFs, building Excel and VBA automation, or designing Python applications and cloud-ready tools, the focus stays the same: minimal friction, measurable results, and systems your team will actually use.</p>
         <p>We work directly with operations leads and warehouse supervisors to understand what breaks, what slows people down, and what must be bulletproof before a single line of code is written.</p>
-
         <div class="about-pillars">
-          <div class="pillar">
-            <div class="pillar-num">01</div>
-            <div class="pillar-title">Execution-first</div>
-            <div class="pillar-desc">Built, tested, and refined inside real operations.</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">02</div>
-            <div class="pillar-title">Detail-obsessed</div>
-            <div class="pillar-desc">Precise handling of data, labels, and edge cases.</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">03</div>
-            <div class="pillar-title">Scalable paths</div>
-            <div class="pillar-desc">Local scripts today, cloud-ready architecture tomorrow.</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">04</div>
-            <div class="pillar-title">Zero guesswork</div>
-            <div class="pillar-desc">Interfaces so clear your team can adopt them immediately.</div>
-          </div>
+          <div class="pillar"><div class="pillar-num">01</div><div class="pillar-title">Execution-first</div><div class="pillar-desc">Built, tested, and refined inside real operations.</div></div>
+          <div class="pillar"><div class="pillar-num">02</div><div class="pillar-title">Detail-obsessed</div><div class="pillar-desc">Precise handling of data, labels, and edge cases.</div></div>
+          <div class="pillar"><div class="pillar-num">03</div><div class="pillar-title">Scalable paths</div><div class="pillar-desc">Local scripts today, cloud-ready architecture tomorrow.</div></div>
+          <div class="pillar"><div class="pillar-num">04</div><div class="pillar-title">Zero guesswork</div><div class="pillar-desc">Interfaces so clear your team can adopt them immediately.</div></div>
         </div>
       </div>
-
       <div class="philosophy-card reveal">
-        <blockquote>“Every line of code is written with one question in mind: does this make the work on the ground cleaner, faster, and more precise?”</blockquote>
-        <p style="font-size:1rem;color:var(--text-muted);margin-bottom:1.4rem;line-height:1.9">
-          From PDF-to-Excel converters and HU matchers to billing engines and QR-based consumable apps, each solution is tuned for speed, clarity, and reliable execution for the end user.
-        </p>
+        <blockquote>"Every line of code is written with one question in mind: does this make the work on the ground cleaner, faster, and more precise?"</blockquote>
+        <p style="font-size:1rem;color:var(--text-muted);margin-bottom:1.4rem;line-height:1.9">From PDF-to-Excel converters and HU matchers to billing engines and QR-based consumable apps, each solution is tuned for speed, clarity, and reliable execution for the end user.</p>
         <div class="badge-list">
           <span class="badge">Real-world logistics projects</span>
           <span class="badge">Warehouse & ASRS experience</span>
-          <span class="badge">Python</span>
-          <span class="badge">Excel VBA</span>
-          <span class="badge">Process automation</span>
-          <span class="badge">Digital transformation</span>
+          <span class="badge">Python</span><span class="badge">Excel VBA</span>
+          <span class="badge">Process automation</span><span class="badge">Digital transformation</span>
         </div>
       </div>
     </div>
@@ -1199,7 +366,6 @@ body{font-size:16px}
       <h2 class="section-title">Precision-built for<br><em>your</em> operations.</h2>
     </div>
   </div>
-
   <div class="services-grid reveal" style="margin-top:2.5rem">
     <div class="svc">
       <div class="svc-icon"><i class="fas fa-code"></i></div>
@@ -1208,7 +374,6 @@ body{font-size:16px}
       <p>Bespoke Python and desktop tools that automate repetitive tasks such as HU matching, PDF data extraction, label generation, billing engines, and more — designed to run reliably on your existing infrastructure.</p>
       <div class="svc-footer">Designed for 24/7 operational environments</div>
     </div>
-
     <div class="svc">
       <div class="svc-icon"><i class="fas fa-table"></i></div>
       <div class="svc-kicker">Excel, refined</div>
@@ -1216,7 +381,6 @@ body{font-size:16px}
       <p>High-accuracy Excel and VBA solutions for reporting, inbound and outbound control, temperature tracking, and structured data handling — with interfaces your team can understand immediately.</p>
       <div class="svc-footer">Perfect for teams living in Excel</div>
     </div>
-
     <div class="svc">
       <div class="svc-icon"><i class="fas fa-cloud"></i></div>
       <div class="svc-kicker">Cloud-aware</div>
@@ -1227,37 +391,241 @@ body{font-size:16px}
   </div>
 </section>
 
+<!-- PROJECTS CAROUSEL -->
+<section class="section" id="work" style="background:var(--ink);padding-bottom:5rem">
+  <div class="section-inner">
+    <div class="section-header reveal" style="margin-bottom:2.8rem">
+      <div class="section-kicker">Selected work</div>
+      <h2 class="section-title">Sixteen precision tools.<br><em>Real operations.</em> Real results.</h2>
+    </div>
+  </div>
+
+  <!-- Full-bleed carousel (no max-width constraint) -->
+  <div class="carousel-outer" id="carouselOuter">
+    <div class="carousel-track" id="carouselTrack">
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-boxes-stacked"></i></div><div class="project-index">01</div></div>
+        <div class="project-date">Sep 2024 – Oct 2024</div>
+        <div class="project-category">Warehouse Automation</div>
+        <div class="project-title">HU Extractor & Matcher System</div>
+        <p class="project-desc">Extracts Handling Unit numbers from inbound PDF documents and matches them against operational Excel records — automatically highlighting matched or unmatched items to eliminate manual checking errors during inbound receiving.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">PDF Extraction</span>
+          <span class="skill-pill">Excel Automation</span><span class="skill-pill">Tkinter</span><span class="skill-pill">SAP EWM</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-file-pdf"></i></div><div class="project-index">02</div></div>
+        <div class="project-date">Aug 2024 – Oct 2024</div>
+        <div class="project-category">Document Automation</div>
+        <div class="project-title">NameMyPDF — PDF Renaming Tool</div>
+        <p class="project-desc">Batch-processes PDF documents and auto-renames them based on extracted invoice numbers, customer names, or keyword patterns — organising output into structured folders for logistics and admin teams.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">PDF Automation</span>
+          <span class="skill-pill">File Management</span><span class="skill-pill">Tkinter</span><span class="skill-pill">Batch Processing</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-envelope-open-text"></i></div><div class="project-index">03</div></div>
+        <div class="project-date">Sep 2024 – Oct 2024</div>
+        <div class="project-category">Logistics Documentation</div>
+        <div class="project-title">Notice of Arrival Automation</div>
+        <p class="project-desc">Identifies relevant Outlook emails by container and shipment details, downloads PDF attachments, and organises them into structured folders — eliminating manual document hunting for inbound operations teams.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">VBA</span><span class="skill-pill skill-pill-accent">Outlook Automation</span>
+          <span class="skill-pill">Excel</span><span class="skill-pill">File Management</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-file-invoice-dollar"></i></div><div class="project-index">04</div></div>
+        <div class="project-date">Nov 2024 – Jun 2025</div>
+        <div class="project-category">Billing Automation</div>
+        <div class="project-title">VAS Billing Document Generator</div>
+        <p class="project-desc">Generates Value Added Service billing documents automatically with running control numbers, dynamic department-based field labels, auto folder creation by year/month, and structured PDF output — removing manual billing preparation.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">PDF Generation</span>
+          <span class="skill-pill">Tkinter</span><span class="skill-pill">Billing Process</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-clipboard-check"></i></div><div class="project-index">05</div></div>
+        <div class="project-date">Aug 2025 – Present</div>
+        <div class="project-category">Web App · Safety Compliance</div>
+        <div class="project-title">Digital MHE Daily Checklist System</div>
+        <p class="project-desc">Replaces paper MHE inspection forms with a QR-code-accessed web system. Operators complete digital checklists and submit breakdown reports with photo evidence — giving supervisors real-time inspection visibility.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Web Development</span><span class="skill-pill skill-pill-accent">QR Code System</span>
+          <span class="skill-pill">Python</span><span class="skill-pill">JavaScript</span><span class="skill-pill">Database Design</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-qrcode"></i></div><div class="project-index">06</div></div>
+        <div class="project-date">Mar 2025 – Apr 2025</div>
+        <div class="project-category">Web App · Warehouse Ops</div>
+        <div class="project-title">Consumables Replenishment QR App</div>
+        <p class="project-desc">Employees scan their QR badge to submit replenishment activity and stock discrepancy reports. Discrepancy submissions auto-trigger supervisor email notifications — improving accountability and reducing manual follow-up.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">React</span><span class="skill-pill skill-pill-accent">Node.js</span>
+          <span class="skill-pill">QR Scanning</span><span class="skill-pill">Email Automation</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-warehouse"></i></div><div class="project-index">07</div></div>
+        <div class="project-date">May 2025 – Present</div>
+        <div class="project-category">Warehouse Management</div>
+        <div class="project-title">Simple WMS Application</div>
+        <p class="project-desc">Lightweight WMS for managing goods receipt, goods issue, stock balance, bin locations, and inventory movement — a user-friendly alternative to complex enterprise systems for small businesses and warehouse teams.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">Tkinter</span>
+          <span class="skill-pill">Inventory Management</span><span class="skill-pill">CSV / Excel</span><span class="skill-pill">WMS</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-robot"></i></div><div class="project-index">08</div></div>
+        <div class="project-date">May 2026 – Present</div>
+        <div class="project-category">AI-Powered · Sales Automation</div>
+        <div class="project-title">AI RFQ & Tender Proposal Assistant</div>
+        <p class="project-desc">Reads customer RFQ and tender documents, extracts key requirements, summarises scope, and highlights missing info — helping contract logistics sales teams reduce review time and improve proposal quality on cost drivers like manpower, SLA, and margin.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">OpenAI API</span>
+          <span class="skill-pill">RFQ Analysis</span><span class="skill-pill">Contract Logistics</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-magnifying-glass-chart"></i></div><div class="project-index">09</div></div>
+        <div class="project-date">May 2026 – Present</div>
+        <div class="project-category">AI-Powered · Sales Tools</div>
+        <div class="project-title">AI Lead Finder for Sales Teams</div>
+        <p class="project-desc">Combines Google location search with AI analysis to identify companies and summarise business relevance. Includes LinkedIn role search by position keyword — enabling highly targeted sales prospecting and outreach preparation.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">OpenAI API</span>
+          <span class="skill-pill">Google Maps API</span><span class="skill-pill">Lead Generation</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-route"></i></div><div class="project-index">10</div></div>
+        <div class="project-date">May 2026 – Present</div>
+        <div class="project-category">Logistics Planning</div>
+        <div class="project-title">Route Optimization Planning App</div>
+        <p class="project-desc">Reads delivery addresses from Excel and integrates Google Maps APIs to calculate optimised delivery sequences — reducing travel time and giving drivers a simple daily route planning tool without manual effort.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">Google Maps API</span>
+          <span class="skill-pill">Route Optimization</span><span class="skill-pill">Excel Automation</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-stamp"></i></div><div class="project-index">11</div></div>
+        <div class="project-date">2025 – Present</div>
+        <div class="project-category">Document Control</div>
+        <div class="project-title">PDF Stamper — Appendix Edition</div>
+        <p class="project-desc">Drag-and-drop Python tool that batch-stamps PDF files with appendix numbers, page numbers, logos, and custom labels — supporting colour selection and multiple numbering formats for consistent professional document control.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">PyMuPDF</span>
+          <span class="skill-pill">PDF Automation</span><span class="skill-pill">Tkinter</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-file-waveform"></i></div><div class="project-index">12</div></div>
+        <div class="project-date">2025 – Present</div>
+        <div class="project-category">AI-Powered · Invoice Processing</div>
+        <div class="project-title">DocParser Pro — AI Invoice Extractor</div>
+        <p class="project-desc">AI discovers fields from uploaded invoices on first run, then saves reusable offline profiles for subsequent extractions — eliminating manual data entry and exporting clean results directly to Excel for finance and logistics teams.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">OpenAI API</span>
+          <span class="skill-pill">OCR</span><span class="skill-pill">PDF Parsing</span><span class="skill-pill">Excel Export</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-id-badge"></i></div><div class="project-index">13</div></div>
+        <div class="project-date">Jun 2025 – Present</div>
+        <div class="project-category">Security & Operations</div>
+        <div class="project-title">Visitor Management & WhatsApp App</div>
+        <p class="project-desc">Captures visitor details, vehicle, purpose, and timestamps at the guardhouse, then sends the information directly to the relevant employee via WhatsApp — improving visitor tracking and real-time communication.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">WhatsApp Automation</span>
+          <span class="skill-pill">Camera Integration</span><span class="skill-pill">Data Capture</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-heart-pulse"></i></div><div class="project-index">14</div></div>
+        <div class="project-date">Jul 2025 – Present</div>
+        <div class="project-category">AI Research · Medical Data</div>
+        <div class="project-title">ECG Analysis AI Desktop App</div>
+        <p class="project-desc">Local desktop prototype that processes ECG waveform data, extracts key signal features, and applies AI-assisted analysis to support report interpretation — exploring practical AI-assisted medical signal processing.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">OpenAI API</span>
+          <span class="skill-pill">ECG Signal Processing</span><span class="skill-pill">Data Analysis</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-paintbrush"></i></div><div class="project-index">15</div></div>
+        <div class="project-date">Aug 2025 – Present</div>
+        <div class="project-category">Creative Tools</div>
+        <div class="project-title">String Art Portrait Generator</div>
+        <p class="project-desc">Converts portrait photos into string art instructions — users define board size and nail count, then the app generates printable nail-to-nail instruction sheets for customised wall art production.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">Python</span><span class="skill-pill skill-pill-accent">Image Processing</span>
+          <span class="skill-pill">GUI Development</span><span class="skill-pill">Printable Output</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top"><div class="project-icon"><i class="fas fa-rocket"></i></div><div class="project-index">16</div></div>
+        <div class="project-date">Jul 2025 – Present</div>
+        <div class="project-category">Productivity Tools</div>
+        <div class="project-title">Startup Launcher App</div>
+        <p class="project-desc">GUI tool for managing which applications and files open automatically on workstation startup — users add, edit, and remove launch items without touching scripts, improving daily workflow setup consistency.</p>
+        <div class="project-skills">
+          <span class="skill-pill skill-pill-accent">VBScript</span><span class="skill-pill skill-pill-accent">Python</span>
+          <span class="skill-pill">GUI Development</span><span class="skill-pill">Windows Automation</span>
+        </div>
+      </div>
+
+    </div><!-- /carousel-track -->
+  </div><!-- /carousel-outer -->
+
+  <!-- Controls -->
+  <div class="section-inner">
+    <div class="carousel-controls reveal">
+      <div class="carousel-arrows">
+        <button class="carousel-btn" id="btnPrev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+        <button class="carousel-btn" id="btnNext" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="carousel-progress-wrap"><div class="carousel-progress-bar" id="progressBar"></div></div>
+      <div class="carousel-counter"><em id="counterCurrent">01</em> / <span id="counterTotal">16</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- PROCESS -->
-<section class="section" id="process">
+<section class="section" id="process" style="background:var(--ink-2)">
   <div class="section-inner">
     <div class="section-header reveal" style="text-align:center">
       <div class="section-kicker" style="justify-content:center">How it works</div>
       <h2 class="section-title">A focused, no-fluff<br><em>engagement model.</em></h2>
     </div>
-
     <div style="position:relative">
       <div class="process-connector"></div>
       <div class="process-steps reveal">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h4>Workflow audit</h4>
-          <p>We map your current process, pinpoint friction points, and agree on what success should look like.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h4>Precision scoping</h4>
-          <p>A tight scope document keeps the work clear, aligned, and free from unnecessary surprises.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h4>Build & test</h4>
-          <p>Iterative development is tested against real operational data and real-world edge cases.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <h4>Handover & support</h4>
-          <p>Clean delivery, practical documentation, and support that evolves with your operations.</p>
-        </div>
+        <div class="step"><div class="step-num">01</div><h4>Workflow audit</h4><p>We map your current process, pinpoint friction points, and agree on what success should look like.</p></div>
+        <div class="step"><div class="step-num">02</div><h4>Precision scoping</h4><p>A tight scope document keeps the work clear, aligned, and free from unnecessary surprises.</p></div>
+        <div class="step"><div class="step-num">03</div><h4>Build & test</h4><p>Iterative development is tested against real operational data and real-world edge cases.</p></div>
+        <div class="step"><div class="step-num">04</div><h4>Handover & support</h4><p>Clean delivery, practical documentation, and support that evolves with your operations.</p></div>
       </div>
     </div>
   </div>
@@ -1270,33 +638,21 @@ body{font-size:16px}
       <div class="section-kicker">Proof</div>
       <h2 class="section-title">Tools built to earn<br>their place on <em>your desktop.</em></h2>
     </div>
-
     <div class="testi-grid">
       <div class="testi reveal">
         <div class="testi-mark">"</div>
         <p>"What used to take multiple manual checks now runs with a single click. The precision of the automation eliminated recurring data errors we had accepted for years."</p>
-        <div class="testi-author">
-          <cite>Operations Lead, Inbound Logistics</cite>
-          <span>On custom HU & PO matching tools</span>
-        </div>
+        <div class="testi-author"><cite>Operations Lead, Inbound Logistics</cite><span>On custom HU & PO matching tools</span></div>
       </div>
-
       <div class="testi reveal">
         <div class="testi-mark">"</div>
         <p>"The Excel and Python tools built for us feel native to our workflow. No fluff — just clear, reliable outcomes every time we run them."</p>
-        <div class="testi-author">
-          <cite>Warehouse Supervisor</cite>
-          <span>On PDF-to-Excel and label automation</span>
-        </div>
+        <div class="testi-author"><cite>Warehouse Supervisor</cite><span>On PDF-to-Excel and label automation</span></div>
       </div>
-
       <div class="testi reveal">
         <div class="testi-mark">"</div>
         <p>"We finally have a structured, repeatable way to handle our daily tasks. The difference in clarity and control is obvious on the floor."</p>
-        <div class="testi-author">
-          <cite>Logistics Coordinator</cite>
-          <span>On custom operational dashboards</span>
-        </div>
+        <div class="testi-author"><cite>Logistics Coordinator</cite><span>On custom operational dashboards</span></div>
       </div>
     </div>
   </div>
@@ -1309,30 +665,13 @@ body{font-size:16px}
       <div class="contact-left">
         <div class="section-kicker reveal">Contact</div>
         <h2 class="section-title reveal">Discuss a precision<br>build for <em>your team.</em></h2>
-        <p class="reveal">Share your current workflow, challenges, or existing spreadsheets — and we’ll explore how a focused, high-precision tool can remove friction and give you better control.</p>
-
+        <p class="reveal">Share your current workflow, challenges, or existing spreadsheets — and we'll explore how a focused, high-precision tool can remove friction and give you better control.</p>
         <div class="contact-details reveal">
-          <div class="contact-detail">
-            <i class="fas fa-envelope"></i>
-            <div class="contact-detail-text">
-              <a href="mailto:digitaldominiumenterprise@gmail.com">digitaldominiumenterprise@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <i class="fab fa-whatsapp"></i>
-            <div class="contact-detail-text">
-              <a href="https://wa.me/601125830761" target="_blank">WhatsApp: +60 11-2583 0761</a>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <i class="fas fa-map-marker-alt"></i>
-            <div class="contact-detail-text">Malaysia · Remote-first</div>
-          </div>
+          <div class="contact-detail"><i class="fas fa-envelope"></i><div class="contact-detail-text"><a href="mailto:digitaldominiumenterprise@gmail.com">digitaldominiumenterprise@gmail.com</a></div></div>
+          <div class="contact-detail"><i class="fab fa-whatsapp"></i><div class="contact-detail-text"><a href="https://wa.me/601125830761" target="_blank">WhatsApp: +60 11-2583 0761</a></div></div>
+          <div class="contact-detail"><i class="fas fa-map-marker-alt"></i><div class="contact-detail-text">Malaysia · Remote-first</div></div>
         </div>
       </div>
-
       <div class="reveal">
         <form id="contactForm">
           <div class="form-row">
@@ -1341,9 +680,7 @@ body{font-size:16px}
           </div>
           <input type="text" id="company" placeholder="Company / team" required>
           <textarea id="message" placeholder="Describe your current process or the problem you're trying to solve." rows="6" required></textarea>
-          <button type="submit" class="btn-gold" style="border:none;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif">
-            Send project inquiry <i class="fas fa-arrow-right" style="font-size:0.78rem"></i>
-          </button>
+          <button type="submit" class="btn-gold" style="border:none;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif">Send project inquiry <i class="fas fa-arrow-right" style="font-size:0.78rem"></i></button>
         </form>
         <p class="form-note">Your email app will open with the inquiry pre-filled and ready to send.</p>
       </div>
@@ -1355,13 +692,9 @@ body{font-size:16px}
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Digital <em>Dominium</em> Enterprise</div>
-
     <ul class="footer-links">
-      <li><a href="#home">Top</a></li>
-      <li><a href="#">Privacy</a></li>
-      <li><a href="#">Terms</a></li>
+      <li><a href="#home">Top</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li>
     </ul>
-
     <div class="socials">
       <a href="https://www.tiktok.com/@digitaldominium0?_t=ZS-90hZJrUarWD&_r=1" target="_blank" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
       <a href="https://www.linkedin.com/company/107092880" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -1370,77 +703,206 @@ body{font-size:16px}
       <a href="https://wa.me/601125830761" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
-
   <div class="footer-copy">&copy; 2025 Digital Dominium Enterprise — Precision software for real operations.</div>
 </footer>
 
 <script>
-function toggleMenu(){
-  document.getElementById('navLinks').classList.toggle('open');
-}
+// ── Nav ──────────────────────────────────────────────
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+function closeMenu(){document.getElementById('navLinks').classList.remove('open')}
 
-function closeMenu(){
-  document.getElementById('navLinks').classList.remove('open');
-}
-
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const id=a.getAttribute('href');
-    if(id && id !== '#'){
-      e.preventDefault();
-      const el=document.querySelector(id);
-      if(el) el.scrollIntoView({behavior:'smooth'});
-    }
+    if(id&&id!=='#'){e.preventDefault();const el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth'});}
   });
 });
 
-// Reveal on scroll
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.getElementById('hamburger').addEventListener('keydown',function(e){
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMenu();}
+});
 
+// ── Scroll reveal ─────────────────────────────────────
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
+},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach((el,i)=>{
-  el.style.transitionDelay=`${(i%4)*0.08}s`;
+  el.style.transitionDelay=`${(i%4)*0.07}s`;
   observer.observe(el);
 });
 
-// Contact form
+// ── Carousel ──────────────────────────────────────────
+(function(){
+  const track   = document.getElementById('carouselTrack');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const bar     = document.getElementById('progressBar');
+  const curEl   = document.getElementById('counterCurrent');
+  const cards   = Array.from(track.querySelectorAll('.project-card'));
+  const TOTAL   = cards.length;
+  const GAP     = 1; // px — matches CSS gap:1px
+
+  let currentIdx = 0;
+  let offset     = 0;      // current translateX (negative = moved left)
+  let isDragging = false;
+  let startX     = 0;
+  let startOffset= 0;
+  let velocity   = 0;
+  let lastX      = 0;
+  let lastT      = 0;
+  let rafId      = null;
+
+  function cardWidth(){
+    return cards[0].getBoundingClientRect().width + GAP;
+  }
+
+  function maxOffset(){
+    // total track width minus the outer container width
+    const outerW = track.parentElement.getBoundingClientRect().width;
+    const trackW = cards.length * cardWidth() - GAP;
+    return Math.max(0, trackW - outerW);
+  }
+
+  function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+
+  function setOffset(x, animate){
+    offset = clamp(x, -maxOffset(), 0);
+    if(animate){
+      track.classList.add('is-snapping');
+    } else {
+      track.classList.remove('is-snapping');
+    }
+    track.style.transform = `translateX(${offset}px)`;
+    updateUI();
+  }
+
+  function nearestCard(){
+    const cw = cardWidth();
+    return Math.round(-offset / cw);
+  }
+
+  function snapToCard(idx, animate=true){
+    idx = clamp(idx, 0, TOTAL - 1);
+    currentIdx = idx;
+    setOffset(-(idx * cardWidth()), animate);
+  }
+
+  function updateUI(){
+    const cw = cardWidth();
+    // Derive which card is most visible
+    const idx = clamp(Math.round(-offset / cw), 0, TOTAL - 1);
+    currentIdx = idx;
+    const pct = TOTAL <= 1 ? 100 : (idx / (TOTAL - 1)) * 100;
+    // Progress bar shows how far through the strip we are, minimum 6.25%
+    bar.style.width = Math.max(6.25, pct) + '%';
+    curEl.textContent = String(idx + 1).padStart(2,'0');
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx === TOTAL - 1;
+  }
+
+  // Arrow buttons
+  btnPrev.addEventListener('click', ()=>{ snapToCard(currentIdx - 1); });
+  btnNext.addEventListener('click', ()=>{ snapToCard(currentIdx + 1); });
+
+  // ── Pointer drag (mouse + touch) ──────────────────
+  function onPointerDown(e){
+    if(e.button && e.button !== 0) return;
+    isDragging = true;
+    startX = e.touches ? e.touches[0].clientX : e.clientX;
+    startOffset = offset;
+    velocity = 0;
+    lastX = startX;
+    lastT = Date.now();
+    track.classList.add('grabbing');
+    track.classList.remove('is-snapping');
+    if(rafId){ cancelAnimationFrame(rafId); rafId=null; }
+  }
+
+  function onPointerMove(e){
+    if(!isDragging) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    const dx = x - startX;
+    const now = Date.now();
+    const dt  = now - lastT;
+    if(dt > 0) velocity = (x - lastX) / dt;
+    lastX = x; lastT = now;
+    setOffset(startOffset + dx, false);
+  }
+
+  function onPointerUp(e){
+    if(!isDragging) return;
+    isDragging = false;
+    track.classList.remove('grabbing');
+
+    const cw = cardWidth();
+    // Momentum: project forward by velocity × 300ms
+    const projected = offset + velocity * 300;
+    let targetIdx = Math.round(-projected / cw);
+    targetIdx = clamp(targetIdx, 0, TOTAL - 1);
+
+    // Also check if dragged past half a card
+    const dragged = Math.abs(offset - startOffset);
+    if(dragged < 4 && Math.abs(velocity) < 0.1){
+      // micro-tap, snap back to same card
+      targetIdx = nearestCard();
+    }
+    snapToCard(targetIdx, true);
+  }
+
+  // Mouse events
+  track.addEventListener('mousedown',  onPointerDown);
+  window.addEventListener('mousemove', onPointerMove);
+  window.addEventListener('mouseup',   onPointerUp);
+
+  // Touch events
+  track.addEventListener('touchstart', onPointerDown, {passive:true});
+  window.addEventListener('touchmove',  onPointerMove, {passive:true});
+  window.addEventListener('touchend',   onPointerUp);
+
+  // Prevent image drag interference
+  track.addEventListener('dragstart', e=>e.preventDefault());
+
+  // Keyboard navigation when carousel area is focused
+  document.addEventListener('keydown', e=>{
+    // Only if work section is in viewport
+    const sec = document.getElementById('work');
+    const r = sec.getBoundingClientRect();
+    if(r.bottom < 0 || r.top > window.innerHeight) return;
+    if(e.key==='ArrowLeft')  snapToCard(currentIdx - 1);
+    if(e.key==='ArrowRight') snapToCard(currentIdx + 1);
+  });
+
+  // Wheel / trackpad horizontal scroll
+  track.parentElement.addEventListener('wheel', e=>{
+    if(Math.abs(e.deltaX) < Math.abs(e.deltaY) && Math.abs(e.deltaY) > 10) return;
+    e.preventDefault();
+    track.classList.remove('is-snapping');
+    setOffset(offset - e.deltaX, false);
+    clearTimeout(track._wheelTimer);
+    track._wheelTimer = setTimeout(()=>{ snapToCard(nearestCard(), true); }, 120);
+  },{passive:false});
+
+  // Recalculate on resize
+  window.addEventListener('resize', ()=>{ snapToCard(currentIdx, false); });
+
+  // Remove snapping class after transition ends
+  track.addEventListener('transitionend', ()=>track.classList.remove('is-snapping'));
+
+  // Init
+  updateUI();
+  document.getElementById('counterTotal').textContent = String(TOTAL).padStart(2,'0');
+})();
+
+// ── Contact form ──────────────────────────────────────
 document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
-
   const name=document.getElementById('name').value.trim();
   const email=document.getElementById('email').value.trim();
   const company=document.getElementById('company').value.trim();
   const message=document.getElementById('message').value.trim();
-
   const subject=encodeURIComponent(`Project Inquiry from ${name}`);
-  const body=encodeURIComponent(
-`Hello Digital Dominium Enterprise,
-
-A new project inquiry has been submitted.
-
-Name: ${name}
-Work Email: ${email}
-Company / Team: ${company}
-
-Project Details:
-${message}`
-  );
-
+  const body=encodeURIComponent(`Hello Digital Dominium Enterprise,\n\nA new project inquiry has been submitted.\n\nName: ${name}\nWork Email: ${email}\nCompany / Team: ${company}\n\nProject Details:\n${message}`);
   window.location.href=`mailto:digitaldominiumenterprise@gmail.com?subject=${subject}&body=${body}`;
-});
-
-// Keyboard support for hamburger
-document.getElementById('hamburger').addEventListener('keydown', function(e){
-  if(e.key === 'Enter' || e.key === ' '){
-    e.preventDefault();
-    toggleMenu();
-  }
 });
 </script>
 </body>
